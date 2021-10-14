@@ -2,6 +2,8 @@ import { NetworkInstance } from "./NetworkInstance";
 import { GoogleCacheArtifact, GoogleMavenArtifact, GoogleMavenLibrary } from "../models/GoogleMavenLibrary";
 import { timer } from "rxjs";
 import * as fs from "fs";
+import { LibraryUpdateModel } from "../models/LibraryUpdateModel";
+import { MessagingManager } from "./MessagingManager";
 
 /**
  * This Class is the Dependeices Checker Manager To Check on All Google Dependenices
@@ -135,8 +137,20 @@ export class GoogleDependenciesManager {
     this.createGoogleLibrariesFile(librariesArray);
 
     if (!fs.existsSync(GoogleDependenciesManager.GOOGLE_LIBRARIES_CACHE_FILE)) {
-      this.createGoogleCacheFile(librariesArray);
+      GoogleDependenciesManager.createGoogleCacheFile(librariesArray);
+    } else {
+      this.validateUpdatedLibraries(librariesArray);
     }
+  }
+
+  private validateUpdatedLibraries(librariesArray: Array<GoogleMavenLibrary>) {
+    fs.readFile(GoogleDependenciesManager.GOOGLE_LIBRARIES_CACHE_FILE, 'utf8', function readFileCallback(err, data){
+      if (err){
+        console.log(err);
+      } else {
+        GoogleDependenciesManager.validateUpdatedDependencies(data, librariesArray);
+        GoogleDependenciesManager.createGoogleCacheFile(librariesArray);
+      }});
   }
 
   /**
@@ -172,7 +186,7 @@ export class GoogleDependenciesManager {
    * @param librariesArray
    * @private
    */
-  private createGoogleCacheFile(librariesArray: Array<GoogleMavenLibrary>) {
+  public static createGoogleCacheFile(librariesArray: Array<GoogleMavenLibrary>) {
     const googleCacheObject = {
       libraries: []
     };
@@ -200,6 +214,32 @@ export class GoogleDependenciesManager {
         console.error(GoogleDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception);
       }
     });
+  }
+
+  public static validateUpdatedDependencies(data: string, librariesArray: Array<GoogleMavenLibrary>) {
+    let googleCacheObject = {
+      libraries: []
+    };
+
+    const librariesToUpdate = Array<LibraryUpdateModel>()
+    googleCacheObject = JSON.parse(data);
+    for (let i = 0; i < googleCacheObject.libraries.length; i++) {
+      const library = googleCacheObject.libraries[i];
+      for (let j = 0; j < librariesArray.length; j++) {
+        const newLibrary = librariesArray[i]
+        if (newLibrary.groupId === library.groupId) {
+          if (newLibrary.artifacts[0].versions[0] !== library.artifacts[0].version) {
+            librariesToUpdate.push({
+              groupId: newLibrary.groupId,
+              version: newLibrary.artifacts[0].versions[0],
+              artifact: newLibrary.artifacts[0].name
+            })
+          }
+        }
+      }
+    }
+
+    MessagingManager.sendMessageUpdateDependencies(librariesToUpdate);
   }
 
 }

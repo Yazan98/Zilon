@@ -1,7 +1,7 @@
 {
 	"libraries": [
 		{
-			"groupId": "  android.arch.core",
+			"groupId": "android.arch.core",
 			"artifacts": [
 				{
 					"name": "core-testing",
@@ -67,7 +67,7 @@
 			]
 		},
 		{
-			"groupId": "  android.arch.lifecycle",
+			"groupId": "android.arch.lifecycle",
 			"artifacts": [
 				{
 					"name": "compiler",
@@ -205,7 +205,7 @@
 			]
 		},
 		{
-			"groupId": "  android.arch.navigation",
+			"groupId": "android.arch.navigation",
 			"artifacts": [
 				{
 					"name": "navigation-common",
@@ -444,7 +444,7 @@
 			]
 		},
 		{
-			"groupId": "  android.arch.paging",
+			"groupId": "android.arch.paging",
 			"artifacts": [
 				{
 					"name": "runtime",
@@ -491,7 +491,7 @@
 			]
 		},
 		{
-			"groupId": "  android.arch.persistence",
+			"groupId": "android.arch.persistence",
 			"artifacts": [
 				{
 					"name": "db-framework",
@@ -534,7 +534,7 @@
 			]
 		},
 		{
-			"groupId": "  android.arch.persistence.room",
+			"groupId": "android.arch.persistence.room",
 			"artifacts": [
 				{
 					"name": "compiler",
@@ -767,7 +767,7 @@
 			]
 		},
 		{
-			"groupId": "  android.arch.work",
+			"groupId": "android.arch.work",
 			"artifacts": [
 				{
 					"name": "work-runtime-ktx",
@@ -889,7 +889,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.activity",
+			"groupId": "androidx.activity",
 			"artifacts": [
 				{
 					"name": "activity",
@@ -1033,7 +1033,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.ads",
+			"groupId": "androidx.ads",
 			"artifacts": [
 				{
 					"name": "ads-identifier",
@@ -1064,7 +1064,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.annotation",
+			"groupId": "androidx.annotation",
 			"artifacts": [
 				{
 					"name": "annotation",
@@ -1117,7 +1117,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.appcompat",
+			"groupId": "androidx.appcompat",
 			"artifacts": [
 				{
 					"name": "appcompat",
@@ -1188,7 +1188,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.appsearch",
+			"groupId": "androidx.appsearch",
 			"artifacts": [
 				{
 					"name": "appsearch",
@@ -1223,7 +1223,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.arch.core",
+			"groupId": "androidx.arch.core",
 			"artifacts": [
 				{
 					"name": "core-common",
@@ -1274,7 +1274,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.asynclayoutinflater",
+			"groupId": "androidx.asynclayoutinflater",
 			"artifacts": [
 				{
 					"name": "asynclayoutinflater",
@@ -1290,7 +1290,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.autofill",
+			"groupId": "androidx.autofill",
 			"artifacts": [
 				{
 					"name": "autofill",
@@ -1313,7 +1313,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.benchmark",
+			"groupId": "androidx.benchmark",
 			"artifacts": [
 				{
 					"name": "androidx.benchmark.gradle.plugin",
@@ -1422,7 +1422,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.biometric",
+			"groupId": "androidx.biometric",
 			"artifacts": [
 				{
 					"name": "biometric",
@@ -1458,7 +1458,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.browser",
+			"groupId": "androidx.browser",
 			"artifacts": [
 				{
 					"name": "browser",
@@ -1491,7 +1491,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.camera",
+			"groupId": "androidx.camera",
 			"artifacts": [
 				{
 					"name": "camera-camera2",
@@ -1701,7 +1701,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.car",
+			"groupId": "androidx.car",
 			"artifacts": [
 				{
 					"name": "car",
@@ -1722,7 +1722,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.car.app",
+			"groupId": "androidx.car.app",
 			"artifacts": [
 				{
 					"name": "app",
@@ -1762,7 +1762,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.cardview",
+			"groupId": "androidx.cardview",
 			"artifacts": [
 				{
 					"name": "cardview",
@@ -1778,7 +1778,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.collection",
+			"groupId": "androidx.collection",
 			"artifacts": [
 				{
 					"name": "collection",
@@ -1821,7 +1821,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.compose",
+			"groupId": "androidx.compose",
 			"artifacts": [
 				{
 					"name": "compose-compiler",
@@ -1870,7 +1870,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.compose.animation",
+			"groupId": "androidx.compose.animation",
 			"artifacts": [
 				{
 					"name": "animation",
@@ -1970,7 +1970,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.compose.compiler",
+			"groupId": "androidx.compose.compiler",
 			"artifacts": [
 				{
 					"name": "compiler",
@@ -2011,7 +2011,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.compose.foundation",
+			"groupId": "androidx.compose.foundation",
 			"artifacts": [
 				{
 					"name": "foundation",
@@ -2115,7 +2115,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.compose.material",
+			"groupId": "androidx.compose.material",
 			"artifacts": [
 				{
 					"name": "material",
@@ -2277,7 +2277,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.compose.runtime",
+			"groupId": "androidx.compose.runtime",
 			"artifacts": [
 				{
 					"name": "runtime",
@@ -2508,7 +2508,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.compose.ui",
+			"groupId": "androidx.compose.ui",
 			"artifacts": [
 				{
 					"name": "ui",
@@ -2989,7 +2989,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.concurrent",
+			"groupId": "androidx.concurrent",
 			"artifacts": [
 				{
 					"name": "concurrent-futures",
@@ -3035,7 +3035,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.constraintlayout",
+			"groupId": "androidx.constraintlayout",
 			"artifacts": [
 				{
 					"name": "constraintlayout",
@@ -3133,7 +3133,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.contentpager",
+			"groupId": "androidx.contentpager",
 			"artifacts": [
 				{
 					"name": "contentpager",
@@ -3149,7 +3149,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.coordinatorlayout",
+			"groupId": "androidx.coordinatorlayout",
 			"artifacts": [
 				{
 					"name": "coordinatorlayout",
@@ -3169,7 +3169,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.core",
+			"groupId": "androidx.core",
 			"artifacts": [
 				{
 					"name": "core",
@@ -3343,7 +3343,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.cursoradapter",
+			"groupId": "androidx.cursoradapter",
 			"artifacts": [
 				{
 					"name": "cursoradapter",
@@ -3359,7 +3359,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.customview",
+			"groupId": "androidx.customview",
 			"artifacts": [
 				{
 					"name": "customview",
@@ -3380,7 +3380,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.databinding",
+			"groupId": "androidx.databinding",
 			"artifacts": [
 				{
 					"name": "adapters",
@@ -4718,7 +4718,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.datastore",
+			"groupId": "androidx.datastore",
 			"artifacts": [
 				{
 					"name": "datastore",
@@ -4843,7 +4843,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.documentfile",
+			"groupId": "androidx.documentfile",
 			"artifacts": [
 				{
 					"name": "documentfile",
@@ -4861,7 +4861,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.drawerlayout",
+			"groupId": "androidx.drawerlayout",
 			"artifacts": [
 				{
 					"name": "drawerlayout",
@@ -4885,7 +4885,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.dynamicanimation",
+			"groupId": "androidx.dynamicanimation",
 			"artifacts": [
 				{
 					"name": "dynamicanimation",
@@ -4912,7 +4912,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.emoji",
+			"groupId": "androidx.emoji",
 			"artifacts": [
 				{
 					"name": "emoji",
@@ -4968,7 +4968,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.emoji2",
+			"groupId": "androidx.emoji2",
 			"artifacts": [
 				{
 					"name": "emoji2",
@@ -5007,7 +5007,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.enterprise",
+			"groupId": "androidx.enterprise",
 			"artifacts": [
 				{
 					"name": "enterprise-feedback",
@@ -5043,7 +5043,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.exifinterface",
+			"groupId": "androidx.exifinterface",
 			"artifacts": [
 				{
 					"name": "exifinterface",
@@ -5073,7 +5073,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.fragment",
+			"groupId": "androidx.fragment",
 			"artifacts": [
 				{
 					"name": "fragment",
@@ -5288,7 +5288,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.games",
+			"groupId": "androidx.games",
 			"artifacts": [
 				{
 					"name": "games-activity",
@@ -5351,7 +5351,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.gaming",
+			"groupId": "androidx.gaming",
 			"artifacts": [
 				{
 					"name": "gaming-frame-pacing",
@@ -5368,7 +5368,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.gridlayout",
+			"groupId": "androidx.gridlayout",
 			"artifacts": [
 				{
 					"name": "gridlayout",
@@ -5384,7 +5384,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.health",
+			"groupId": "androidx.health",
 			"artifacts": [
 				{
 					"name": "health-services-client",
@@ -5396,7 +5396,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.heifwriter",
+			"groupId": "androidx.heifwriter",
 			"artifacts": [
 				{
 					"name": "heifwriter",
@@ -5413,7 +5413,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.hilt",
+			"groupId": "androidx.hilt",
 			"artifacts": [
 				{
 					"name": "hilt-common",
@@ -5480,7 +5480,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.interpolator",
+			"groupId": "androidx.interpolator",
 			"artifacts": [
 				{
 					"name": "interpolator",
@@ -5496,7 +5496,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.leanback",
+			"groupId": "androidx.leanback",
 			"artifacts": [
 				{
 					"name": "leanback",
@@ -5558,7 +5558,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.legacy",
+			"groupId": "androidx.legacy",
 			"artifacts": [
 				{
 					"name": "legacy-support-v13",
@@ -5618,7 +5618,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.lifecycle",
+			"groupId": "androidx.lifecycle",
 			"artifacts": [
 				{
 					"name": "lifecycle-common",
@@ -6327,7 +6327,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.loader",
+			"groupId": "androidx.loader",
 			"artifacts": [
 				{
 					"name": "loader",
@@ -6347,7 +6347,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.localbroadcastmanager",
+			"groupId": "androidx.localbroadcastmanager",
 			"artifacts": [
 				{
 					"name": "localbroadcastmanager",
@@ -6364,7 +6364,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.media",
+			"groupId": "androidx.media",
 			"artifacts": [
 				{
 					"name": "media",
@@ -6419,7 +6419,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.media2",
+			"groupId": "androidx.media2",
 			"artifacts": [
 				{
 					"name": "media2",
@@ -6552,7 +6552,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.mediarouter",
+			"groupId": "androidx.mediarouter",
 			"artifacts": [
 				{
 					"name": "mediarouter",
@@ -6586,7 +6586,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.multidex",
+			"groupId": "androidx.multidex",
 			"artifacts": [
 				{
 					"name": "multidex",
@@ -6604,7 +6604,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.navigation",
+			"groupId": "androidx.navigation",
 			"artifacts": [
 				{
 					"name": "navigation-common",
@@ -7241,7 +7241,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.navigation.safeargs",
+			"groupId": "androidx.navigation.safeargs",
 			"artifacts": [
 				{
 					"name": "androidx.navigation.safeargs.gradle.plugin",
@@ -7261,7 +7261,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.navigation.safeargs.kotlin",
+			"groupId": "androidx.navigation.safeargs.kotlin",
 			"artifacts": [
 				{
 					"name": "androidx.navigation.safeargs.kotlin.gradle.plugin",
@@ -7281,7 +7281,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.paging",
+			"groupId": "androidx.paging",
 			"artifacts": [
 				{
 					"name": "paging-common",
@@ -7583,7 +7583,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.palette",
+			"groupId": "androidx.palette",
 			"artifacts": [
 				{
 					"name": "palette-ktx",
@@ -7610,7 +7610,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.percentlayout",
+			"groupId": "androidx.percentlayout",
 			"artifacts": [
 				{
 					"name": "percentlayout",
@@ -7626,7 +7626,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.preference",
+			"groupId": "androidx.preference",
 			"artifacts": [
 				{
 					"name": "preference",
@@ -7669,7 +7669,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.print",
+			"groupId": "androidx.print",
 			"artifacts": [
 				{
 					"name": "print",
@@ -7687,7 +7687,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.profileinstaller",
+			"groupId": "androidx.profileinstaller",
 			"artifacts": [
 				{
 					"name": "profileinstaller",
@@ -7712,7 +7712,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.recommendation",
+			"groupId": "androidx.recommendation",
 			"artifacts": [
 				{
 					"name": "recommendation",
@@ -7728,7 +7728,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.recyclerview",
+			"groupId": "androidx.recyclerview",
 			"artifacts": [
 				{
 					"name": "recyclerview",
@@ -7789,7 +7789,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.remotecallback",
+			"groupId": "androidx.remotecallback",
 			"artifacts": [
 				{
 					"name": "remotecallback",
@@ -7808,7 +7808,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.resourceinspection",
+			"groupId": "androidx.resourceinspection",
 			"artifacts": [
 				{
 					"name": "resourceinspection-annotation",
@@ -7831,7 +7831,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.room",
+			"groupId": "androidx.room",
 			"artifacts": [
 				{
 					"name": "room-common",
@@ -8254,7 +8254,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.savedstate",
+			"groupId": "androidx.savedstate",
 			"artifacts": [
 				{
 					"name": "savedstate",
@@ -8293,7 +8293,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.security",
+			"groupId": "androidx.security",
 			"artifacts": [
 				{
 					"name": "security-app-authenticator",
@@ -8342,7 +8342,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.sharetarget",
+			"groupId": "androidx.sharetarget",
 			"artifacts": [
 				{
 					"name": "sharetarget",
@@ -8363,7 +8363,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.slice",
+			"groupId": "androidx.slice",
 			"artifacts": [
 				{
 					"name": "slice-builders",
@@ -8421,7 +8421,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.slidingpanelayout",
+			"groupId": "androidx.slidingpanelayout",
 			"artifacts": [
 				{
 					"name": "slidingpanelayout",
@@ -8446,7 +8446,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.sqlite",
+			"groupId": "androidx.sqlite",
 			"artifacts": [
 				{
 					"name": "sqlite",
@@ -8502,7 +8502,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.startup",
+			"groupId": "androidx.startup",
 			"artifacts": [
 				{
 					"name": "startup-runtime",
@@ -8522,7 +8522,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.swiperefreshlayout",
+			"groupId": "androidx.swiperefreshlayout",
 			"artifacts": [
 				{
 					"name": "swiperefreshlayout",
@@ -8545,7 +8545,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.test",
+			"groupId": "androidx.test",
 			"artifacts": [
 				{
 					"name": "annotation",
@@ -8825,7 +8825,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.test.espresso",
+			"groupId": "androidx.test.espresso",
 			"artifacts": [
 				{
 					"name": "espresso-accessibility",
@@ -9152,7 +9152,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.test.espresso.idling",
+			"groupId": "androidx.test.espresso.idling",
 			"artifacts": [
 				{
 					"name": "idling-concurrent",
@@ -9249,7 +9249,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.test.ext",
+			"groupId": "androidx.test.ext",
 			"artifacts": [
 				{
 					"name": "junit",
@@ -9380,7 +9380,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.test.janktesthelper",
+			"groupId": "androidx.test.janktesthelper",
 			"artifacts": [
 				{
 					"name": "janktesthelper-v23",
@@ -9401,7 +9401,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.test.services",
+			"groupId": "androidx.test.services",
 			"artifacts": [
 				{
 					"name": "storage",
@@ -9478,7 +9478,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.test.uiautomator",
+			"groupId": "androidx.test.uiautomator",
 			"artifacts": [
 				{
 					"name": "uiautomator-v18",
@@ -9499,7 +9499,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.textclassifier",
+			"groupId": "androidx.textclassifier",
 			"artifacts": [
 				{
 					"name": "textclassifier",
@@ -9512,7 +9512,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.tracing",
+			"groupId": "androidx.tracing",
 			"artifacts": [
 				{
 					"name": "tracing",
@@ -9535,7 +9535,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.transition",
+			"groupId": "androidx.transition",
 			"artifacts": [
 				{
 					"name": "transition",
@@ -9582,7 +9582,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.tvprovider",
+			"groupId": "androidx.tvprovider",
 			"artifacts": [
 				{
 					"name": "tvprovider",
@@ -9599,7 +9599,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.ui",
+			"groupId": "androidx.ui",
 			"artifacts": [
 				{
 					"name": "ui-android-text",
@@ -10006,7 +10006,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.vectordrawable",
+			"groupId": "androidx.vectordrawable",
 			"artifacts": [
 				{
 					"name": "vectordrawable",
@@ -10053,7 +10053,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.versionedparcelable",
+			"groupId": "androidx.versionedparcelable",
 			"artifacts": [
 				{
 					"name": "versionedparcelable",
@@ -10074,7 +10074,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.viewpager",
+			"groupId": "androidx.viewpager",
 			"artifacts": [
 				{
 					"name": "viewpager",
@@ -10091,7 +10091,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.viewpager2",
+			"groupId": "androidx.viewpager2",
 			"artifacts": [
 				{
 					"name": "viewpager2",
@@ -10116,7 +10116,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.wear",
+			"groupId": "androidx.wear",
 			"artifacts": [
 				{
 					"name": "wear",
@@ -10533,7 +10533,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.wear.compose",
+			"groupId": "androidx.wear.compose",
 			"artifacts": [
 				{
 					"name": "compose-foundation",
@@ -10572,7 +10572,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.wear.tiles",
+			"groupId": "androidx.wear.tiles",
 			"artifacts": [
 				{
 					"name": "tiles",
@@ -10636,7 +10636,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.wear.watchface",
+			"groupId": "androidx.wear.watchface",
 			"artifacts": [
 				{
 					"name": "watchface",
@@ -10731,7 +10731,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.webkit",
+			"groupId": "androidx.webkit",
 			"artifacts": [
 				{
 					"name": "webkit",
@@ -10768,7 +10768,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.window",
+			"groupId": "androidx.window",
 			"artifacts": [
 				{
 					"name": "window",
@@ -10839,7 +10839,7 @@
 			]
 		},
 		{
-			"groupId": "  androidx.work",
+			"groupId": "androidx.work",
 			"artifacts": [
 				{
 					"name": "work-gcm",
@@ -11178,7 +11178,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android",
+			"groupId": "com.android",
 			"artifacts": [
 				{
 					"name": "signflinger",
@@ -11444,7 +11444,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.application",
+			"groupId": "com.android.application",
 			"artifacts": [
 				{
 					"name": "com.android.application.gradle.plugin",
@@ -11512,7 +11512,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.asset-pack",
+			"groupId": "com.android.asset-pack",
 			"artifacts": [
 				{
 					"name": "com.android.asset-pack.gradle.plugin",
@@ -11580,7 +11580,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.asset-pack-bundle",
+			"groupId": "com.android.asset-pack-bundle",
 			"artifacts": [
 				{
 					"name": "com.android.asset-pack-bundle.gradle.plugin",
@@ -11617,7 +11617,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.billingclient",
+			"groupId": "com.android.billingclient",
 			"artifacts": [
 				{
 					"name": "billing",
@@ -11648,7 +11648,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.databinding",
+			"groupId": "com.android.databinding",
 			"artifacts": [
 				{
 					"name": "adapters",
@@ -12711,7 +12711,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.dynamic-feature",
+			"groupId": "com.android.dynamic-feature",
 			"artifacts": [
 				{
 					"name": "com.android.dynamic-feature.gradle.plugin",
@@ -12779,7 +12779,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.installreferrer",
+			"groupId": "com.android.installreferrer",
 			"artifacts": [
 				{
 					"name": "installreferrer",
@@ -12796,7 +12796,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.java.tools.build",
+			"groupId": "com.android.java.tools.build",
 			"artifacts": [
 				{
 					"name": "java-lib-model",
@@ -12915,7 +12915,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.library",
+			"groupId": "com.android.library",
 			"artifacts": [
 				{
 					"name": "com.android.library.gradle.plugin",
@@ -12983,7 +12983,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.lint",
+			"groupId": "com.android.lint",
 			"artifacts": [
 				{
 					"name": "com.android.lint.gradle.plugin",
@@ -13051,7 +13051,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.ndk.thirdparty",
+			"groupId": "com.android.ndk.thirdparty",
 			"artifacts": [
 				{
 					"name": "curl",
@@ -13083,7 +13083,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.reporting",
+			"groupId": "com.android.reporting",
 			"artifacts": [
 				{
 					"name": "com.android.reporting.gradle.plugin",
@@ -13094,7 +13094,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.support",
+			"groupId": "com.android.support",
 			"artifacts": [
 				{
 					"name": "support-compat",
@@ -14923,7 +14923,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.support.constraint",
+			"groupId": "com.android.support.constraint",
 			"artifacts": [
 				{
 					"name": "constraint-layout-solver",
@@ -14998,7 +14998,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.support.test",
+			"groupId": "com.android.support.test",
 			"artifacts": [
 				{
 					"name": "runner",
@@ -15073,7 +15073,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.support.test.espresso",
+			"groupId": "com.android.support.test.espresso",
 			"artifacts": [
 				{
 					"name": "espresso-core",
@@ -15178,7 +15178,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.support.test.espresso.idling",
+			"groupId": "com.android.support.test.espresso.idling",
 			"artifacts": [
 				{
 					"name": "idling-net",
@@ -15205,7 +15205,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.support.test.janktesthelper",
+			"groupId": "com.android.support.test.janktesthelper",
 			"artifacts": [
 				{
 					"name": "janktesthelper-v23",
@@ -15217,7 +15217,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.support.test.services",
+			"groupId": "com.android.support.test.services",
 			"artifacts": [
 				{
 					"name": "test-services",
@@ -15233,7 +15233,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.support.test.uiautomator",
+			"groupId": "com.android.support.test.uiautomator",
 			"artifacts": [
 				{
 					"name": "uiautomator-v18",
@@ -15248,7 +15248,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.test",
+			"groupId": "com.android.test",
 			"artifacts": [
 				{
 					"name": "com.android.test.gradle.plugin",
@@ -15316,7 +15316,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools",
+			"groupId": "com.android.tools",
 			"artifacts": [
 				{
 					"name": "annotations",
@@ -17880,7 +17880,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools.analytics-library",
+			"groupId": "com.android.tools.analytics-library",
 			"artifacts": [
 				{
 					"name": "crash",
@@ -19674,7 +19674,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools.apkparser",
+			"groupId": "com.android.tools.apkparser",
 			"artifacts": [
 				{
 					"name": "apkanalyzer",
@@ -20045,7 +20045,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools.build",
+			"groupId": "com.android.tools.build",
 			"artifacts": [
 				{
 					"name": "aapt2",
@@ -22869,7 +22869,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools.build.jetifier",
+			"groupId": "com.android.tools.build.jetifier",
 			"artifacts": [
 				{
 					"name": "jetifier-core",
@@ -22924,7 +22924,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools.chunkio",
+			"groupId": "com.android.tools.chunkio",
 			"artifacts": [
 				{
 					"name": "chunkio",
@@ -23110,7 +23110,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools.ddms",
+			"groupId": "com.android.tools.ddms",
 			"artifacts": [
 				{
 					"name": "ddmlib",
@@ -23392,7 +23392,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools.emulator",
+			"groupId": "com.android.tools.emulator",
 			"artifacts": [
 				{
 					"name": "proto",
@@ -23437,7 +23437,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools.external.com-intellij",
+			"groupId": "com.android.tools.external.com-intellij",
 			"artifacts": [
 				{
 					"name": "intellij-core",
@@ -23979,7 +23979,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools.external.org-jetbrains",
+			"groupId": "com.android.tools.external.org-jetbrains",
 			"artifacts": [
 				{
 					"name": "uast",
@@ -24258,7 +24258,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools.fakeadbserver",
+			"groupId": "com.android.tools.fakeadbserver",
 			"artifacts": [
 				{
 					"name": "fakeadbserver",
@@ -24444,7 +24444,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools.internal.build.test",
+			"groupId": "com.android.tools.internal.build.test",
 			"artifacts": [
 				{
 					"name": "devicepool",
@@ -24455,7 +24455,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools.layoutlib",
+			"groupId": "com.android.tools.layoutlib",
 			"artifacts": [
 				{
 					"name": "layoutlib-api",
@@ -24737,7 +24737,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools.lint",
+			"groupId": "com.android.tools.lint",
 			"artifacts": [
 				{
 					"name": "lint",
@@ -26480,7 +26480,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools.metalava",
+			"groupId": "com.android.tools.metalava",
 			"artifacts": [
 				{
 					"name": "metalava",
@@ -26494,7 +26494,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools.pixelprobe",
+			"groupId": "com.android.tools.pixelprobe",
 			"artifacts": [
 				{
 					"name": "pixelprobe",
@@ -26682,7 +26682,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.tools.utp",
+			"groupId": "com.android.tools.utp",
 			"artifacts": [
 				{
 					"name": "android-device-provider-ddmlib",
@@ -27160,7 +27160,7 @@
 			]
 		},
 		{
-			"groupId": "  com.android.volley",
+			"groupId": "com.android.volley",
 			"artifacts": [
 				{
 					"name": "volley",
@@ -27181,7 +27181,7 @@
 			]
 		},
 		{
-			"groupId": "  com.crashlytics.sdk.android",
+			"groupId": "com.crashlytics.sdk.android",
 			"artifacts": [
 				{
 					"name": "answers",
@@ -27264,7 +27264,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.ads.afsn",
+			"groupId": "com.google.ads.afsn",
 			"artifacts": [
 				{
 					"name": "afs-native",
@@ -27276,7 +27276,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.ads.interactivemedia.v3",
+			"groupId": "com.google.ads.interactivemedia.v3",
 			"artifacts": [
 				{
 					"name": "interactivemedia",
@@ -27310,7 +27310,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.ads.mediation",
+			"groupId": "com.google.ads.mediation",
 			"artifacts": [
 				{
 					"name": "adcolony",
@@ -27467,7 +27467,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.ads",
+			"groupId": "com.google.android.ads",
 			"artifacts": [
 				{
 					"name": "mediation-test-suite",
@@ -27493,7 +27493,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.ads.consent",
+			"groupId": "com.google.android.ads.consent",
 			"artifacts": [
 				{
 					"name": "consent-library",
@@ -27512,7 +27512,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.apps.common.testing.accessibility.framework",
+			"groupId": "com.google.android.apps.common.testing.accessibility.framework",
 			"artifacts": [
 				{
 					"name": "accessibility-test-framework",
@@ -27525,7 +27525,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.datatransport",
+			"groupId": "com.google.android.datatransport",
 			"artifacts": [
 				{
 					"name": "transport-api",
@@ -27579,7 +27579,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.enterprise.connectedapps",
+			"groupId": "com.google.android.enterprise.connectedapps",
 			"artifacts": [
 				{
 					"name": "connectedapps",
@@ -27639,7 +27639,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.exoplayer",
+			"groupId": "com.google.android.exoplayer",
 			"artifacts": [
 				{
 					"name": "exoplayer",
@@ -27891,7 +27891,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.fhir",
+			"groupId": "com.google.android.fhir",
 			"artifacts": [
 				{
 					"name": "data-capture",
@@ -27914,7 +27914,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.flexbox",
+			"groupId": "com.google.android.flexbox",
 			"artifacts": [
 				{
 					"name": "flexbox",
@@ -27925,7 +27925,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.games",
+			"groupId": "com.google.android.games",
 			"artifacts": [
 				{
 					"name": "memory-advice",
@@ -27950,7 +27950,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.gms",
+			"groupId": "com.google.android.gms",
 			"artifacts": [
 				{
 					"name": "auth-api-impl",
@@ -30738,7 +30738,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.instantapps",
+			"groupId": "com.google.android.instantapps",
 			"artifacts": [
 				{
 					"name": "instantapps",
@@ -30750,7 +30750,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.instantapps.thirdpartycompat",
+			"groupId": "com.google.android.instantapps.thirdpartycompat",
 			"artifacts": [
 				{
 					"name": "volleycompat",
@@ -30761,7 +30761,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.libraries.car",
+			"groupId": "com.google.android.libraries.car",
 			"artifacts": [
 				{
 					"name": "car-app",
@@ -30778,7 +30778,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.libraries.enterprise.amapi",
+			"groupId": "com.google.android.libraries.enterprise.amapi",
 			"artifacts": [
 				{
 					"name": "amapi",
@@ -30789,7 +30789,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.libraries.maps",
+			"groupId": "com.google.android.libraries.maps",
 			"artifacts": [
 				{
 					"name": "maps",
@@ -30800,7 +30800,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.libraries.mapsplatform.secrets-gradle-plugin",
+			"groupId": "com.google.android.libraries.mapsplatform.secrets-gradle-plugin",
 			"artifacts": [
 				{
 					"name": "com.google.android.libraries.mapsplatform.secrets-gradle-plugin.gradle.plugin",
@@ -30822,7 +30822,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.libraries.places",
+			"groupId": "com.google.android.libraries.places",
 			"artifacts": [
 				{
 					"name": "places",
@@ -30853,7 +30853,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.material",
+			"groupId": "com.google.android.material",
 			"artifacts": [
 				{
 					"name": "compose-theme-adapter",
@@ -30945,7 +30945,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.mediahome",
+			"groupId": "com.google.android.mediahome",
 			"artifacts": [
 				{
 					"name": "books",
@@ -30962,7 +30962,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.odml",
+			"groupId": "com.google.android.odml",
 			"artifacts": [
 				{
 					"name": "image",
@@ -30973,7 +30973,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.play",
+			"groupId": "com.google.android.play",
 			"artifacts": [
 				{
 					"name": "core",
@@ -31023,7 +31023,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.support",
+			"groupId": "com.google.android.support",
 			"artifacts": [
 				{
 					"name": "wearable",
@@ -31042,7 +31042,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.things",
+			"groupId": "com.google.android.things",
 			"artifacts": [
 				{
 					"name": "androidthings",
@@ -31056,7 +31056,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.ump",
+			"groupId": "com.google.android.ump",
 			"artifacts": [
 				{
 					"name": "user-messaging-platform",
@@ -31068,7 +31068,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.android.wearable",
+			"groupId": "com.google.android.wearable",
 			"artifacts": [
 				{
 					"name": "wearable",
@@ -31087,7 +31087,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.androidbrowserhelper",
+			"groupId": "com.google.androidbrowserhelper",
 			"artifacts": [
 				{
 					"name": "androidbrowserhelper",
@@ -31138,7 +31138,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.ar",
+			"groupId": "com.google.ar",
 			"artifacts": [
 				{
 					"name": "core",
@@ -31178,7 +31178,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.ar.sceneform",
+			"groupId": "com.google.ar.sceneform",
 			"artifacts": [
 				{
 					"name": "filament-android",
@@ -31329,7 +31329,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.ar.sceneform.ux",
+			"groupId": "com.google.ar.sceneform.ux",
 			"artifacts": [
 				{
 					"name": "sceneform-ux",
@@ -31356,7 +31356,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.assistant.appactions",
+			"groupId": "com.google.assistant.appactions",
 			"artifacts": [
 				{
 					"name": "suggestions",
@@ -31373,7 +31373,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.assistant.suggestion",
+			"groupId": "com.google.assistant.suggestion",
 			"artifacts": [
 				{
 					"name": "assistant-suggestions",
@@ -31385,7 +31385,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.chromeos",
+			"groupId": "com.google.chromeos",
 			"artifacts": [
 				{
 					"name": "chromeos-lowlatencystylus",
@@ -31396,7 +31396,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.devtools.ksp",
+			"groupId": "com.google.devtools.ksp",
 			"artifacts": [
 				{
 					"name": "com.google.devtools.ksp.gradle.plugin",
@@ -31548,7 +31548,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.fhir",
+			"groupId": "com.google.fhir",
 			"artifacts": [
 				{
 					"name": "r4",
@@ -31559,7 +31559,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.firebase",
+			"groupId": "com.google.firebase",
 			"artifacts": [
 				{
 					"name": "crash-plugin",
@@ -33884,7 +33884,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.gms",
+			"groupId": "com.google.gms",
 			"artifacts": [
 				{
 					"name": "google-services",
@@ -33926,7 +33926,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.jacquard",
+			"groupId": "com.google.jacquard",
 			"artifacts": [
 				{
 					"name": "jacquard-sdk",
@@ -33937,7 +33937,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.mediapipe",
+			"groupId": "com.google.mediapipe",
 			"artifacts": [
 				{
 					"name": "facedetection",
@@ -33971,7 +33971,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.mlkit",
+			"groupId": "com.google.mlkit",
 			"artifacts": [
 				{
 					"name": "barcode-scanning",
@@ -34300,7 +34300,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.oboe",
+			"groupId": "com.google.oboe",
 			"artifacts": [
 				{
 					"name": "oboe",
@@ -34316,7 +34316,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.prefab",
+			"groupId": "com.google.prefab",
 			"artifacts": [
 				{
 					"name": "api",
@@ -34355,7 +34355,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.test.platform",
+			"groupId": "com.google.test.platform",
 			"artifacts": [
 				{
 					"name": "android-device-controller-adb",
@@ -34415,7 +34415,7 @@
 			]
 		},
 		{
-			"groupId": "  com.google.testing.platform",
+			"groupId": "com.google.testing.platform",
 			"artifacts": [
 				{
 					"name": "android-device-controller-adb",
@@ -34604,7 +34604,7 @@
 			]
 		},
 		{
-			"groupId": "  io.fabric.sdk.android",
+			"groupId": "io.fabric.sdk.android",
 			"artifacts": [
 				{
 					"name": "fabric",
@@ -34624,7 +34624,7 @@
 			]
 		},
 		{
-			"groupId": "  org.chromium.net",
+			"groupId": "org.chromium.net",
 			"artifacts": [
 				{
 					"name": "cronet-api",
@@ -34705,7 +34705,7 @@
 			]
 		},
 		{
-			"groupId": "  org.jetbrains.kotlin",
+			"groupId": "org.jetbrains.kotlin",
 			"artifacts": [
 				{
 					"name": "kotlin-compiler-embeddable",
@@ -34746,7 +34746,7 @@
 			]
 		},
 		{
-			"groupId": "  tools.base.build-system.debug",
+			"groupId": "tools.base.build-system.debug",
 			"artifacts": [
 				{
 					"name": "model",
@@ -34760,7 +34760,7 @@
 			]
 		},
 		{
-			"groupId": "  zipflinger",
+			"groupId": "zipflinger",
 			"artifacts": [
 				{
 					"name": "zipflinger",
