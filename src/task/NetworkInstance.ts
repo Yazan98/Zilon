@@ -8,6 +8,7 @@ export class NetworkInstance {
 
   // General Url's For Requests
   public static ANDROID_ALL_LIBRARIES = 'master-index.xml';
+  public static GROUP_ARTIFACTS = "/group-index.xml";
 
   static getGoogleMavenRepositoriesInstance(): Axios {
     let instance = axios.create({
@@ -17,10 +18,10 @@ export class NetworkInstance {
       headers: { Accept: 'application/xml' },
     });
 
-    instance.interceptors.request.use(request => {
-      console.log('Starting Request', JSON.stringify(request, null, 2))
-      return request
-    })
+    // instance.interceptors.request.use(request => {
+    //   console.log('Starting Request', JSON.stringify(request, null, 2))
+    //   return request
+    // })
 
     return instance;
   }
