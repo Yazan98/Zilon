@@ -1,12 +1,21 @@
 import { NetworkInstance } from "./NetworkInstance";
-import { GoogleMavenArtifact, GoogleMavenLibrary } from "../models/GoogleMavenLibrary";
+import { GoogleCacheArtifact, GoogleMavenArtifact, GoogleMavenLibrary } from "../models/GoogleMavenLibrary";
 import { timer } from "rxjs";
+import * as fs from "fs";
 
+/**
+ * This Class is the Dependeices Checker Manager To Check on All Google Dependenices
+ * and Versions, Artifacts Then Group Them
+ * and Check if each Library Has new Version Report this New Version
+ * All of this Inside Script Built from This Url : https://maven.google.com/web/index.html
+ */
 export class GoogleDependenciesManager {
 
   private static CONSOLE_LOGGING_KEY = "[Google Dependencies]";
   private static SKIP_META_DATA_TAG = "metadata";
   private static SKIP_XML_HEADER_TAG = "xml version='1.0'";
+  private static GOOGLE_LIBRARIES_FILE = "google-libraries.json";
+  private static GOOGLE_LIBRARIES_CACHE_FILE = "google-cache.json";
 
   /**
    * This Method is The Start Point To Get All Packages From Google Maven Repository
@@ -123,9 +132,74 @@ export class GoogleDependenciesManager {
    * @private
    */
   private validateLibrariesUpdatedVersions(librariesArray: Array<GoogleMavenLibrary>) {
-    for (let i = 0; i < librariesArray.length; i++) {
+    this.createGoogleLibrariesFile(librariesArray);
 
+    if (!fs.existsSync(GoogleDependenciesManager.GOOGLE_LIBRARIES_CACHE_FILE)) {
+      this.createGoogleCacheFile(librariesArray);
     }
+  }
+
+  /**
+   * IT's just a Temp File to Save All Google Libraries inside Json File
+   * @param librariesArray
+   * @private
+   */
+  private createGoogleLibrariesFile(librariesArray: Array<GoogleMavenLibrary>) {
+    const googleLibrariesObject = {
+      libraries: []
+    };
+
+    for (let i = 0; i < librariesArray.length; i++) {
+      const library = librariesArray[i]
+      googleLibrariesObject.libraries.push({
+        groupId: library.groupId.trim(),
+        artifacts: library.artifacts
+      })
+    }
+
+    const json = JSON.stringify(googleLibrariesObject, null, "\t");
+    fs.writeFile(GoogleDependenciesManager.GOOGLE_LIBRARIES_FILE, json, 'utf8', (exception) => {
+      if (exception != null) {
+        console.error(GoogleDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception);
+      }
+    });
+  }
+
+  /**
+   * Create Google Cache File with Latest Libraries Versions
+   * This File if Not Exists Will Create new One for First Time
+   * Then Will Update It After Checking The Version of the New Response Inside Libraries Array
+   * @param librariesArray
+   * @private
+   */
+  private createGoogleCacheFile(librariesArray: Array<GoogleMavenLibrary>) {
+    const googleCacheObject = {
+      libraries: []
+    };
+
+    for (let i = 0; i < librariesArray.length; i++) {
+      const library = librariesArray[i]
+      const artifacts = Array<GoogleCacheArtifact>()
+      for (let j = 0; j < library.artifacts.length; j++) {
+        const currentArtifact = library.artifacts[j]
+        artifacts.push({
+          artifact: currentArtifact.name,
+          version: currentArtifact.versions[0]
+        })
+      }
+
+      googleCacheObject.libraries.push({
+        groupId: library.groupId.trim(),
+        artifacts: artifacts
+      })
+    }
+
+    const json = JSON.stringify(googleCacheObject, null, "\t");
+    fs.writeFile(GoogleDependenciesManager.GOOGLE_LIBRARIES_CACHE_FILE, json, 'utf8', (exception) => {
+      if (exception != null) {
+        console.error(GoogleDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception);
+      }
+    });
   }
 
 }

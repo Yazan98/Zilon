@@ -13,3 +13,11 @@ export class GoogleMavenArtifact {
   ) {
   }
 }
+
+export class GoogleCacheArtifact {
+  constructor(
+    public artifact: string,
+    public version: string
+  ) {
+  }
+}
