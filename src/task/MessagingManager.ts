@@ -8,7 +8,7 @@ export class MessagingManager {
   private static FIREBASE_KEY = "firebase";
 
   // Hardcoded Links
-  private static FIREBASE_DOCUMENTATION = "https://firebase.google.com/docs/firestore/";
+  private static FIREBASE_BASE_URL_DOCUMENTATION = "https://firebase.google.com/docs";
 
   public sendMessageUpdateDependencies(libraries: Array<LibraryUpdateModel>) {
     let configFile = new ApplicationConfigFile("", "", "");
@@ -18,11 +18,19 @@ export class MessagingManager {
     for (let i = 0; i < libraries.length; i++) {
       const library = libraries[i]
       let message = "";
+      let isPlugin = false;
+      if (library.artifact.includes("plugin")) {
+        isPlugin = true
+      }
       message += "*" + MessagingManager.capitalizeFirstLetter(library.artifact.split("-").join(" ")) + " Released New Version *\n"
       message += " 1. New Version : " + library.version + "\n"
-      message += " 2. Update Dependency : " + "implementation \'" + library.groupId + ":" + library.artifact + ":" + library.version + "\'" + "\n"
+      if (isPlugin) {
+        message += " 2. Update Plugin : " + "classpath (\'" + library.groupId + ":" + library.artifact + ":" + library.version + "\')" + "\n"
+      } else {
+        message += " 2. Update Dependency : " + "implementation \'" + library.groupId + ":" + library.artifact + ":" + library.version + "\'" + "\n"
+      }
       if (library.groupId.includes(MessagingManager.FIREBASE_KEY)) {
-        message += " 3. Documentation : " + MessagingManager.FIREBASE_DOCUMENTATION + "\n";
+        message += " 3. Documentation : " + MessagingManager.getDocumentationUrl(library.artifact) + "\n";
       }
       MessagingManager.sendSlackMessage(configFile, message)
     }
@@ -48,6 +56,38 @@ export class MessagingManager {
       })
     } catch (error) {
       console.error(error);
+    }
+  }
+
+  private static getDocumentationUrl(artifact: string): string {
+    if (artifact.includes("firestore")) {
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/firestore"
+    } else if (artifact.includes("crashlytics")) {
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/crashlytics"
+    } else if (artifact.includes("analytics")) {
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/analytics"
+    } else if (artifact.includes("ads")) {
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/ads"
+    } else if (artifact.includes("appindexing")) {
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/appindexing"
+    } else if (artifact.includes("auth")) {
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/auth"
+    } else if (artifact.includes("config")) {
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/config"
+    } else if (artifact.includes("database")) {
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/database"
+    } else if (artifact.includes("dynamic-links")) {
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/dynamic-links"
+    } else if (artifact.includes("functions")) {
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/functions"
+    } else if (artifact.includes("invites")) {
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/invites"
+    } else if (artifact.includes("messaging")) {
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/messaging"
+    } else if (artifact.includes("storage")) {
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/storage"
+    } else {
+      return "UnKnown"
     }
   }
 
