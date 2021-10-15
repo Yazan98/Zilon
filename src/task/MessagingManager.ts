@@ -20,7 +20,7 @@ export class MessagingManager {
       let message = "";
       message += "*" + MessagingManager.capitalizeFirstLetter(library.artifact.split("-").join(" ")) + " Released New Version *\n"
       message += " 1. New Version : " + library.version + "\n"
-      message += " 2. Update Dependency : " + "implementation \'" + library.groupId + ":" + library.artifact + ":" + library.version + "\'"
+      message += " 2. Update Dependency : " + "implementation \'" + library.groupId + ":" + library.artifact + ":" + library.version + "\'" + "\n"
       if (library.groupId.includes(MessagingManager.FIREBASE_KEY)) {
         message += " 3. Documentation : " + MessagingManager.FIREBASE_DOCUMENTATION + "\n";
       }
@@ -39,7 +39,8 @@ export class MessagingManager {
         mrkdwn: true,
         text: message,
         as_user: true,
-        parse: 'full'
+        parse: 'full',
+        username: 'Zilon'
       }).then((response) => {
         console.log("Slack Message Response : " + response.message.text);
       }).catch((exception) => {
