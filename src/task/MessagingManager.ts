@@ -9,6 +9,7 @@ export class MessagingManager {
 
   // Hardcoded Links
   private static FIREBASE_BASE_URL_DOCUMENTATION = "https://firebase.google.com/docs";
+  private static RELEASE_NOTES_FIREBASE = "https://firebase.google.com/support/release-notes/android";
 
   public sendMessageUpdateDependencies(libraries: Array<LibraryUpdateModel>) {
     let configFile = new ApplicationConfigFile("", "", "");
@@ -29,8 +30,10 @@ export class MessagingManager {
       } else {
         message += " 2. Update Dependency : " + "implementation \'" + library.groupId + ":" + library.artifact + ":" + library.version + "\'" + "\n"
       }
+
       if (library.groupId.includes(MessagingManager.FIREBASE_KEY)) {
-        message += " 3. Documentation : " + MessagingManager.getDocumentationUrl(library.artifact) + "\n";
+        message += " 3. Documentation : " + MessagingManager.getFirebaseDocumentationUrl(library.artifact) + "\n";
+        message += " 4. Release Notes : " + MessagingManager.RELEASE_NOTES_FIREBASE + "\n";
       }
       MessagingManager.sendSlackMessage(configFile, message)
     }
@@ -59,7 +62,7 @@ export class MessagingManager {
     }
   }
 
-  private static getDocumentationUrl(artifact: string): string {
+  private static getFirebaseDocumentationUrl(artifact: string): string {
     if (artifact.includes("firestore")) {
       return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/firestore"
     } else if (artifact.includes("crashlytics")) {
