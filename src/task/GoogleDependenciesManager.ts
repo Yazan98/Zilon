@@ -239,7 +239,7 @@ export class GoogleDependenciesManager {
       }
     }
 
-    MessagingManager.sendMessageUpdateDependencies(librariesToUpdate);
+    new MessagingManager().sendMessageUpdateDependencies(librariesToUpdate);
   }
 
 }
