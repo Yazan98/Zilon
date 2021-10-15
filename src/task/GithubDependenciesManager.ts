@@ -12,7 +12,7 @@ import { MessagingManager } from "./MessagingManager";
 
 export class GithubDependenciesManager {
 
-  private static GITHUB_LIBRARIES_FILE = "github-libraries.json";
+  private static GITHUB_LIBRARIES_FILE = "android-github-libraries.json";
   private static CONSOLE_LOGGING_KEY = "[Github Dependencies Manager]"
   private static GITHUB_CACHE_FILE = "github-libraries-cache.json"
 

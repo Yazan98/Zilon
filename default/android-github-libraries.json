@@ -1,0 +1,87 @@
+{
+	"libraries": [
+		{
+			"name": "guava",
+			"url": "google/guava"
+		},
+		{
+			"name": "gradle",
+			"url": "gradle/gradle"
+		},{
+			"name": "IndicatorFastScroll",
+			"url": "reddit/IndicatorFastScroll"
+		},
+		{
+			"name": "BottomBarLayout",
+			"url": "chaychan/BottomBarLayout"
+		},
+		{
+			"name": "MPAndroidChart",
+			"url": "PhilJay/MPAndroidChart"
+		},
+		{
+			"name": "flexbox-layout",
+			"url": "google/flexbox-layout"
+		},
+		{
+			"name": "gradle-intellij-plugin",
+			"url": "JetBrains/gradle-intellij-plugin"
+		},
+		{
+			"name": "apollo-android",
+			"url": "apollographql/apollo-android"
+		},
+		{
+			"name": "mobius",
+			"url": "spotify/mobius"
+		},
+		{
+			"name": "robolectric",
+			"url": "robolectric/robolectric"
+		},
+		{
+			"name": "RxKotlin",
+			"url": "ReactiveX/RxKotlin"
+		},
+		{
+			"name": "RxJava",
+			"url": "ReactiveX/RxJava"
+		},
+		{
+			"name": "RxAndroid",
+			"url": "ReactiveX/RxAndroid"
+		},
+		{
+			"name": "coil",
+			"url": "coil-kt/coil"
+		},
+		{
+			"name": "crumb",
+			"url": "uber/crumb"
+		},
+		{
+			"name": "kotlinx.coroutines",
+			"url": "Kotlin/kotlinx.coroutines"
+		},
+		{
+			"name": "gradle-maven-publish-plugin",
+			"url": "vanniktech/gradle-maven-publish-plugin"
+		},
+		{
+			"name": "leakcanary",
+			"url": "square/leakcanary"
+		},
+		{
+			"name": "RIBs",
+			"url": "uber/RIBs"
+		},
+		{
+			"name": "picasso",
+			"url": "square/picasso"
+		},
+		{
+			"name": "glide",
+			"url": "bumptech/glide"
+		}
+	]
+}
