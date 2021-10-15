@@ -4,7 +4,6 @@ export class NetworkInstance {
 
   // Base Url's For Requests
   public static ANDROID_MAVEN_PATH = '/android/maven2/';
-  public static GOOGLE_REPOSITORY_BASE_URL = 'https://dl.google.com';
 
   // General Url's For Requests
   public static ANDROID_ALL_LIBRARIES = 'master-index.xml';

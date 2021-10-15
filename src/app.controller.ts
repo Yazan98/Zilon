@@ -3,6 +3,7 @@ import { AppService } from './app.service';
 import { GoogleDependenciesManager } from "./task/GoogleDependenciesManager";
 import { MessagingManager } from "./task/MessagingManager";
 import { LibraryUpdateModel } from "./models/LibraryUpdateModel";
+import { GithubDependenciesManager } from "./task/GithubDependenciesManager";
 
 @Controller()
 export class AppController {
@@ -17,6 +18,12 @@ export class AppController {
   getAllDependencies(): string {
     new GoogleDependenciesManager().getAllPackages();
     return 'Check Logs of The Project ...';
+  }
+
+  @Get("/github")
+  getAllDependenciesGithub(): string {
+    new GithubDependenciesManager().validateGithubLibrariesFile();
+    return "Github Deps Returned ...";
   }
 
   @Get("/messages/test")
