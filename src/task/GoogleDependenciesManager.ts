@@ -232,7 +232,12 @@ export class GoogleDependenciesManager {
             librariesToUpdate.push({
               groupId: newLibrary.groupId,
               version: newLibrary.artifacts[0].versions[0],
-              artifact: newLibrary.artifacts[0].name
+              artifact: newLibrary.artifacts[0].name,
+              url: "",
+              isGithubSource: false,
+              releaseUrl: "",
+              name: "",
+              isPreRelease: false
             })
           }
         }

@@ -19,24 +19,50 @@ export class MessagingManager {
     for (let i = 0; i < libraries.length; i++) {
       const library = libraries[i]
       let message = "";
-      let isPlugin = false;
-      if (library.artifact.includes("plugin")) {
-        isPlugin = true
-      }
-      message += "*" + MessagingManager.capitalizeFirstLetter(library.artifact.split("-").join(" ")) + " Released New Version *\n"
-      message += " 1. New Version : " + library.version + "\n"
-      if (isPlugin) {
-        message += " 2. Update Plugin : " + "classpath (\'" + library.groupId + ":" + library.artifact + ":" + library.version + "\')" + "\n"
+      if (library.isGithubSource) {
+        message += MessagingManager.getGithubMessageString(library);
       } else {
-        message += " 2. Update Dependency : " + "implementation \'" + library.groupId + ":" + library.artifact + ":" + library.version + "\'" + "\n"
-      }
-
-      if (library.groupId.includes(MessagingManager.FIREBASE_KEY)) {
-        message += " 3. Documentation : " + MessagingManager.getFirebaseDocumentationUrl(library.artifact) + "\n";
-        message += " 4. Release Notes : " + MessagingManager.RELEASE_NOTES_FIREBASE + "\n";
+        message += MessagingManager.getMessageString(library);
       }
       MessagingManager.sendSlackMessage(configFile, message)
     }
+  }
+
+  private static getGithubMessageString(library: LibraryUpdateModel): string {
+    let message = "";
+    message += "*" + MessagingManager.capitalizeFirstLetter(library.name) + " Released New Version *\n"
+    message += " 1. Library Release Link : " + library.releaseUrl + " \n"
+    message += " 2. Library Url : " + library.url + " \n"
+    message += " 3. Library Version : " + library.version + " \n"
+    if (library.isPreRelease) {
+      message += " 4. This Release is a Sub Release"
+    } else {
+      message += " 5. This Release is a Full Release"
+    }
+
+    return message
+  }
+
+  private static getMessageString(library: LibraryUpdateModel): string {
+    let isPlugin = false;
+    let message = "";
+    if (library.artifact.includes("plugin")) {
+      isPlugin = true
+    }
+    message += "*" + MessagingManager.capitalizeFirstLetter(library.artifact.split("-").join(" ")) + " Released New Version *\n"
+    message += " 1. New Version : " + library.version + "\n"
+    if (isPlugin) {
+      message += " 2. Update Plugin : " + "classpath (\'" + library.groupId + ":" + library.artifact + ":" + library.version + "\')" + "\n"
+    } else {
+      message += " 2. Update Dependency : " + "implementation \'" + library.groupId + ":" + library.artifact + ":" + library.version + "\'" + "\n"
+    }
+
+    if (library.groupId.includes(MessagingManager.FIREBASE_KEY)) {
+      message += " 3. Documentation : " + MessagingManager.getFirebaseDocumentationUrl(library.artifact) + "\n";
+      message += " 4. Release Notes : " + MessagingManager.RELEASE_NOTES_FIREBASE + "\n";
+    }
+
+    return message
   }
 
   private static capitalizeFirstLetter(string) {

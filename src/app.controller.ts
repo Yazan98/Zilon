@@ -22,7 +22,11 @@ export class AppController {
 
   @Get("/github")
   getAllDependenciesGithub(): string {
-    new GithubDependenciesManager().validateGithubLibrariesFile();
+    new GithubDependenciesManager().validateGithubLibrariesFile().then(() => {
+      console.log("Anything ... from GithubDependenciesManager")
+    }).catch((exception) => {
+      console.error(exception)
+    });
     return "Github Deps Returned ...";
   }
 

@@ -1,0 +1,12 @@
+{
+	"libraries": [
+		{
+			"name": "Zilon",
+			"url": "Yazan98/Zilon"
+		},
+		{
+			"name": "guava",
+			"url": "google/guava"
+		}
+	]
+}

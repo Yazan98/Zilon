@@ -28,3 +28,21 @@ export class GithubCacheLibrary {
   ) {
   }
 }
+
+export class GithubRepositoryRelease {
+  constructor(
+    public html_url: string,
+    public name: string,
+    public prerelease: boolean,
+  ) {
+  }
+}
+
+export class GithubRepositoriesInformation {
+  constructor(
+    public name: string,
+    public url: string,
+    public releases: Array<GithubRepositoryRelease>
+  ) {
+  }
+}
