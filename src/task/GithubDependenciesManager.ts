@@ -93,8 +93,37 @@ export class GithubDependenciesManager {
           }
         }
 
-        new MessagingManager().sendMessageUpdateDependencies(requireUpdateLibraries)
+        new MessagingManager().sendMessageUpdateDependencies(requireUpdateLibraries);
+        GithubDependenciesManager.saveNewGithubRepositoriesCacheFile(libraries);
       }});
+  }
+
+  /**
+   * After Updating the Required Dependencies and Send All of them inside Messages in Slack
+   * Now we Want to Refresh the Json File with New Cached Data
+   * To Save The Notified Releases
+   * @param libraries
+   * @private
+   */
+  private static saveNewGithubRepositoriesCacheFile(libraries: Array<GithubRepositoriesInformation>) {
+    const fs = require('fs');
+    if (!fs.existsSync(GithubDependenciesManager.GITHUB_CACHE_FILE)) {
+      const librariesFile = new GithubLibrariesCacheContainer(new Array<GithubCacheLibrary>())
+      for (let i = 0; i < libraries.length; i++) {
+        const library = libraries[i]
+        librariesFile.libraries.push({
+          name: library.name,
+          release: library.releases[0].name
+        })
+      }
+
+      const json = JSON.stringify(librariesFile, null, "\t");
+      fs.writeFile(GithubDependenciesManager.GITHUB_CACHE_FILE, json, 'utf8', (exception) => {
+        if (exception != null) {
+          console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception);
+        }
+      });
+    }
   }
 
   /**
