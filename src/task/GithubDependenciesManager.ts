@@ -11,7 +11,7 @@ import { MessagingManager } from "./MessagingManager";
 
 export class GithubDependenciesManager {
 
-  private static GITHUB_LIBRARIES_FILE = "android-github-libraries.json";
+  private static GITHUB_LIBRARIES_FILE = "github-libraries.json";
   private static CONSOLE_LOGGING_KEY = "[Github Dependencies Manager]"
   private static GITHUB_CACHE_FILE = "github-libraries-cache.json"
 
@@ -179,6 +179,7 @@ export class GithubDependenciesManager {
           method: "get"
         }).then((response) => {
           if (response.status == NetworkInstance.SUCCESS_RESPONSE_CODE) {
+            console.log(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Library : " + library.url + " Response : " + response.data.toString())
             librariesInformation.push({
               name: library.name,
               url: library.url,

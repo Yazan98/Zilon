@@ -1,12 +1,160 @@
 {
 	"libraries": [
 		{
-			"name": "Zilon",
-			"url": "Yazan98/Zilon"
+			"name": "danger",
+			"url": "danger/danger"
 		},
 		{
-			"name": "guava",
-			"url": "google/guava"
+			"name": "angular",
+			"url": "angular/angular"
+		},
+		{
+			"name": "angular",
+			"url": "angular/angular-cli"
+		},
+		{
+			"name": "githunt",
+			"url": "kamranahmedse/githunt"
+		},
+		{
+			"name": "roadmap.sh",
+			"url": "kamranahmedse/roadmap.sh"
+		},
+		{
+			"name": "RxLifecycle",
+			"url": "trello/RxLifecycle"
+		},
+		{
+			"name": "flexbox-layout",
+			"url": "google/flexbox-layout"
+		},
+		{
+			"name": "vercel",
+			"url": "vercel/vercel"
+		},
+		{
+			"name": "next.js",
+			"url": "vercel/next.js"
+		},
+		{
+			"name": "hyper",
+			"url": "vercel/hyper"
+		},
+		{
+			"name": "Alerter",
+			"url": "Tapadoo/Alerter"
+		},
+		{
+			"name": "vscode",
+			"url": "microsoft/vscode"
+		},
+		{
+			"name": "flutter",
+			"url": "flutter/flutter"
+		},
+		{
+			"name": "airbnb javascript",
+			"url": "airbnb/javascript"
+		},
+		{
+			"name": "react",
+			"url": "facebook/react"
+		},
+		{
+			"name": "nest",
+			"url": "nestjs/nest"
+		},
+		{
+			"name": "nest-cli",
+			"url": "nestjs/nest-cli"
+		},
+		{
+			"name": "gradle",
+			"url": "gradle/gradle"
+		},
+		{
+			"name": "stream-chat-android",
+			"url": "GetStream/stream-chat-android"
+		},
+		{
+			"name": "cypress",
+			"url": "cypress-io/cypress"
+		},
+		{
+			"name": "jenkins",
+			"url": "jenkinsci/jenkins"
+		},
+		{
+			"name": "fastlane",
+			"url": "fastlane/fastlane"
+		},
+		{
+			"name": "fresco",
+			"url": "facebook/fresco"
+		},
+		{
+			"name": "litho",
+			"url": "facebook/litho"
+		},
+		{
+			"name": "create-react-app",
+			"url": "facebook/create-react-app"
+		},
+		{
+			"name": "spring-boot",
+			"url": "spring-projects/spring-boot"
+		},
+		{
+			"name": "spring-framework",
+			"url": "spring-projects/spring-framework"
+		},
+		{
+			"name": "express",
+			"url": "expressjs/express"
+		},
+		{
+			"name": "cli",
+			"url": "npm/cli"
+		},
+		{
+			"name": "elasticsearch",
+			"url": "elastic/elasticsearch"
+		},
+		{
+			"name": "kibana",
+			"url": "elastic/kibana"
+		},
+		{
+			"name": "logstash",
+			"url": "elastic/logstash"
+		},
+		{
+			"name": "kafka",
+			"url": "apache/kafka"
+		},
+		{
+			"name": "cassandra",
+			"url": "apache/cassandra"
+		},
+		{
+			"name": "maven",
+			"url": "apache/maven"
+		},
+		{
+			"name": "terminal",
+			"url": "microsoft/terminal"
+		},
+		{
+			"name": "tomcat",
+			"url": "apache/tomcat"
+		},
+		{
+			"name": "docker",
+			"url": "microsoft/docker"
+		},
+		{
+			"name": "retrofit",
+			"url": "square/retrofit"
 		}
 	]
 }

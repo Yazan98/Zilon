@@ -1,8 +1,160 @@
 {
 	"libraries": [
 		{
-			"name": "demo",
-			"release": "Release Version"
+			"name": "danger",
+			"release": "8.3.1"
+		},
+		{
+			"name": "angular",
+			"release": "13.0.0-rc.0"
+		},
+		{
+			"name": "angular",
+			"release": "13.0.0-rc.0"
+		},
+		{
+			"name": "githunt",
+			"release": "3.0"
+		},
+		{
+			"name": "roadmap.sh",
+			"release": "2.0"
+		},
+		{
+			"name": "RxLifecycle",
+			"release": "v4.0.2"
+		},
+		{
+			"name": "flexbox-layout",
+			"release": "3.0.0"
+		},
+		{
+			"name": "vercel",
+			"release": "16.1.2"
+		},
+		{
+			"name": "next.js",
+			"release": "7.0.3"
+		},
+		{
+			"name": "hyper",
+			"release": "3.1.0-canary.4"
+		},
+		{
+			"name": "Alerter",
+			"release": "7.2.4"
+		},
+		{
+			"name": "vscode",
+			"release": "1.999.0"
+		},
+		{
+			"name": "flutter",
+			"release": "2.6.0-11.0.pre"
+		},
+		{
+			"name": "airbnb javascript",
+			"release": "eslint-config-airbnb-v18.2.1"
+		},
+		{
+			"name": "react",
+			"release": "16.1.0"
+		},
+		{
+			"name": "nest",
+			"release": "6.3.1"
+		},
+		{
+			"name": "nest-cli",
+			"release": "8.1.2"
+		},
+		{
+			"name": "gradle",
+			"release": "v7.3.0-RC1"
+		},
+		{
+			"name": "stream-chat-android",
+			"release": "4.19.0"
+		},
+		{
+			"name": "cypress",
+			"release": "v8.6.0"
+		},
+		{
+			"name": "jenkins",
+			"release": "1.580.1-rc1"
+		},
+		{
+			"name": "fastlane",
+			"release": "2.196.0"
+		},
+		{
+			"name": "fresco",
+			"release": "v2.6.0"
+		},
+		{
+			"name": "litho",
+			"release": "v2021.10.11"
+		},
+		{
+			"name": "create-react-app",
+			"release": "v4.0.3"
+		},
+		{
+			"name": "spring-boot",
+			"release": "v2.6.0-M3"
+		},
+		{
+			"name": "spring-framework",
+			"release": "v5.3.11"
+		},
+		{
+			"name": "express",
+			"release": "5.0.0-alpha.8"
+		},
+		{
+			"name": "cli",
+			"release": "1.1.25"
+		},
+		{
+			"name": "elasticsearch",
+			"release": "v8.0.0-alpha2"
+		},
+		{
+			"name": "kibana",
+			"release": "7.0-known-good"
+		},
+		{
+			"name": "logstash",
+			"release": "7.0.0-alpha2"
+		},
+		{
+			"name": "kafka",
+			"release": "3.0.0"
+		},
+		{
+			"name": "cassandra",
+			"release": "cassandra-4.0.1"
+		},
+		{
+			"name": "maven",
+			"release": "workspace-v0"
+		},
+		{
+			"name": "terminal",
+			"release": "1904.29002"
+		},
+		{
+			"name": "tomcat",
+			"release": "10.1.0-M6"
+		},
+		{
+			"name": "docker",
+			"release": "0.0.3"
+		},
+		{
+			"name": "retrofit",
+			"release": "2.9.0"
 		}
 	]
 }
