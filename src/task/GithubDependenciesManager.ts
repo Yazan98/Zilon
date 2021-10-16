@@ -2,7 +2,9 @@ import {
   GithubCacheLibrary,
   GithubContainerFileContent,
   GithubLibrariesCacheContainer,
-  GithubLibrary, GithubRepositoriesInformation, GithubRepositoryRelease
+  GithubLibrary,
+  GithubRepositoriesInformation,
+  GithubRepositoryRelease
 } from "../models/GithubLibrary";
 import { NetworkInstance } from "./NetworkInstance";
 import { timer } from "rxjs";
@@ -10,6 +12,16 @@ import { LibraryUpdateModel } from "../models/LibraryUpdateModel";
 import { MessagingManager } from "./MessagingManager";
 import { ApplicationConfigFile } from "../models/ApplicationConfigFile";
 
+/**
+ * This Github Manager Will Check all Repositories from Github Config Json File
+ * And Request Github Api for each Repository to Get The Latest Release Only
+ * if not Match the Cached Release Will send it on Slack as a new Version
+ * And this Task will be Executed One time Per Day because of Limitation on Api Requests inside Github Client
+ *
+ * You Can Specify More Requests by adding clientId, SecreteClientToken inside Config.json File
+ * If empty Will have the Default Limit
+ * You can Create Them from Github Account Settings, OAuth Settings
+ */
 export class GithubDependenciesManager {
 
   private static GITHUB_LIBRARIES_FILE = "github-libraries.json";
@@ -25,37 +37,37 @@ export class GithubDependenciesManager {
    * if not will send message on slack channel via config.json token, channelId
    */
   public async validateGithubLibrariesFile() {
-    const fs = require('fs');
+    const fs = require("fs");
     this.createGithubLibrariesFile();
 
     let configFile = new ApplicationConfigFile("", "", "", true, "", "");
     if (fs.existsSync(GithubDependenciesManager.CONFIG_FILE)) {
-      const dataFile = fs.readFileSync(GithubDependenciesManager.CONFIG_FILE)
+      const dataFile = fs.readFileSync(GithubDependenciesManager.CONFIG_FILE);
       configFile = JSON.parse(dataFile.toString());
     }
 
-    let librariesInformation = new Array<GithubRepositoriesInformation>()
-    let librariesFile = new GithubContainerFileContent(new Array<GithubLibrary>())
+    let librariesInformation = new Array<GithubRepositoriesInformation>();
+    let librariesFile = new GithubContainerFileContent(new Array<GithubLibrary>());
     if (fs.existsSync(GithubDependenciesManager.GITHUB_LIBRARIES_FILE)) {
-      const data = fs.readFileSync(GithubDependenciesManager.GITHUB_LIBRARIES_FILE, 'utf8');
-      librariesFile = JSON.parse(data)
+      const data = fs.readFileSync(GithubDependenciesManager.GITHUB_LIBRARIES_FILE, "utf8");
+      librariesFile = JSON.parse(data);
       for (let i = 0; i < librariesFile.libraries.length; i++) {
-        const library = librariesFile.libraries[i]
-        await timer(5000)
+        const library = librariesFile.libraries[i];
+        await timer(5000);
         await NetworkInstance.getGithubRepositoriesInstance().get<Array<GithubRepositoryRelease>>(this.getGithubRequestUrl(configFile, NetworkInstance.GITHUB_REPOS_KEY + library.url + NetworkInstance.GITHUB_RELEASES_KEY), {
           method: "get"
         }).then((response) => {
-            if (response.status == NetworkInstance.SUCCESS_RESPONSE_CODE) {
-              librariesInformation.push({
-                name: library.name,
-                url: library.url,
-                releases: response.data
-              })
-            } else {
-              console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + response.data + " Response : " + response.statusText)
-            }
+          if (response.status == NetworkInstance.SUCCESS_RESPONSE_CODE) {
+            librariesInformation.push({
+              name: library.name,
+              url: library.url,
+              releases: response.data
+            });
+          } else {
+            console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + response.data + " Response : " + response.statusText);
+          }
         }).catch((exception) => {
-          console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception)
+          console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception);
         });
       }
 
@@ -64,7 +76,7 @@ export class GithubDependenciesManager {
   }
 
   private getGithubRequestUrl(config: ApplicationConfigFile, url: string): string {
-    return url + "?client_id=" + config.githubClientId + "&client_secret=" + config.githubClientSecrete
+    return url + "?client_id=" + config.githubClientId + "&client_secret=" + config.githubClientSecrete;
   }
 
   /**
@@ -75,21 +87,21 @@ export class GithubDependenciesManager {
    * @private
    */
   private validateGithubRepositoriesReleasesVersions(libraries: Array<GithubRepositoriesInformation>) {
-    const fs = require('fs');
-    let librariesFile = new GithubLibrariesCacheContainer(new Array<GithubCacheLibrary>())
-    const requireUpdateLibraries = new Array<LibraryUpdateModel>()
-    fs.readFile(GithubDependenciesManager.GITHUB_CACHE_FILE, 'utf8', function readFileCallback(err, data){
+    const fs = require("fs");
+    let librariesFile = new GithubLibrariesCacheContainer(new Array<GithubCacheLibrary>());
+    const requireUpdateLibraries = new Array<LibraryUpdateModel>();
+    fs.readFile(GithubDependenciesManager.GITHUB_CACHE_FILE, "utf8", function readFileCallback(err, data) {
       if (err) {
         console.log(err);
       } else {
         librariesFile = JSON.parse(data);
         for (let i = 0; i < librariesFile.libraries.length; i++) {
-          const cachedLibrary = librariesFile.libraries[i]
+          const cachedLibrary = librariesFile.libraries[i];
           for (let j = 0; j < libraries.length; j++) {
-            const triggeredLibrary = libraries[j]
+            const triggeredLibrary = libraries[j];
             if (cachedLibrary.name.includes(triggeredLibrary.name) && triggeredLibrary.releases != null) {
               if (!cachedLibrary.release.includes(triggeredLibrary.releases[triggeredLibrary.releases.length - 1].ref.replace("refs/tags/", ""))) {
-                console.log(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Library Need Update : " + triggeredLibrary.name + " Version : " + cachedLibrary.release + " Updated Version : " + triggeredLibrary.releases[triggeredLibrary.releases.length - 1].ref.replace("refs/tags/", ""))
+                console.log(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Library Need Update : " + triggeredLibrary.name + " Version : " + cachedLibrary.release + " Updated Version : " + triggeredLibrary.releases[triggeredLibrary.releases.length - 1].ref.replace("refs/tags/", ""));
                 requireUpdateLibraries.push({
                   isGithubSource: true,
                   releaseUrl: "https://github.com/" + triggeredLibrary.url + "/releases",
@@ -98,7 +110,7 @@ export class GithubDependenciesManager {
                   artifact: "",
                   groupId: "",
                   name: triggeredLibrary.url.split("/")[1]
-                })
+                });
               }
             }
           }
@@ -106,7 +118,8 @@ export class GithubDependenciesManager {
 
         new MessagingManager().sendMessageUpdateDependencies(requireUpdateLibraries);
         GithubDependenciesManager.saveNewGithubRepositoriesCacheFile(libraries);
-      }});
+      }
+    });
   }
 
   /**
@@ -117,23 +130,23 @@ export class GithubDependenciesManager {
    * @private
    */
   private static saveNewGithubRepositoriesCacheFile(libraries: Array<GithubRepositoriesInformation>) {
-    const fs = require('fs');
+    const fs = require("fs");
     if (fs.existsSync(GithubDependenciesManager.GITHUB_CACHE_FILE)) {
-      const librariesFile = new GithubLibrariesCacheContainer(new Array<GithubCacheLibrary>())
+      const librariesFile = new GithubLibrariesCacheContainer(new Array<GithubCacheLibrary>());
       for (let i = 0; i < libraries.length; i++) {
         try {
-          const library = libraries[i]
+          const library = libraries[i];
           librariesFile.libraries.push({
             name: library.name,
             release: library.releases[library.releases.length - 1].ref.replace("refs/tags/", "")
-          })
+          });
         } catch (error) {
-          console.error(error)
+          console.error(error);
         }
       }
 
       const json = JSON.stringify(librariesFile, null, "\t");
-      fs.writeFile(GithubDependenciesManager.GITHUB_CACHE_FILE, json, 'utf8', (exception) => {
+      fs.writeFile(GithubDependenciesManager.GITHUB_CACHE_FILE, json, "utf8", (exception) => {
         if (exception != null) {
           console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception);
         }
@@ -149,16 +162,16 @@ export class GithubDependenciesManager {
    * @private
    */
   private createGithubLibrariesFile() {
-    const fs = require('fs');
+    const fs = require("fs");
     if (!fs.existsSync(GithubDependenciesManager.GITHUB_CACHE_FILE)) {
-      const librariesFile = new GithubLibrariesCacheContainer(new Array<GithubCacheLibrary>())
+      const librariesFile = new GithubLibrariesCacheContainer(new Array<GithubCacheLibrary>());
       librariesFile.libraries.push({
         name: "demo",
         release: "Release Version"
-      })
+      });
 
       const json = JSON.stringify(librariesFile, null, "\t");
-      fs.writeFile(GithubDependenciesManager.GITHUB_CACHE_FILE, json, 'utf8', (exception) => {
+      fs.writeFile(GithubDependenciesManager.GITHUB_CACHE_FILE, json, "utf8", (exception) => {
         if (exception != null) {
           console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception);
         }
@@ -166,14 +179,14 @@ export class GithubDependenciesManager {
     }
 
     if (!fs.existsSync(GithubDependenciesManager.GITHUB_LIBRARIES_FILE)) {
-      const librariesFile = new GithubContainerFileContent(new Array<GithubLibrary>())
+      const librariesFile = new GithubContainerFileContent(new Array<GithubLibrary>());
       librariesFile.libraries.push({
         name: "Zilon",
         url: "Yazan98/Zilon"
-      })
+      });
 
       const json = JSON.stringify(librariesFile, null, "\t");
-      fs.writeFile(GithubDependenciesManager.GITHUB_LIBRARIES_FILE, json, 'utf8', (exception) => {
+      fs.writeFile(GithubDependenciesManager.GITHUB_LIBRARIES_FILE, json, "utf8", (exception) => {
         if (exception != null) {
           console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception);
         }
@@ -187,49 +200,49 @@ export class GithubDependenciesManager {
    * Then Next Time The Cron Job will Check Each one of them if updated will Send Slack Message then Update The Cache File
    */
   public async createGithubCacheFileForAllRepositories() {
-    const fs = require('fs');
-    let librariesInformation = new Array<GithubRepositoriesInformation>()
-    let librariesFile = new GithubContainerFileContent(new Array<GithubLibrary>())
+    const fs = require("fs");
+    let librariesInformation = new Array<GithubRepositoriesInformation>();
+    let librariesFile = new GithubContainerFileContent(new Array<GithubLibrary>());
 
     if (fs.existsSync(GithubDependenciesManager.GITHUB_LIBRARIES_FILE)) {
-      const data = fs.readFileSync(GithubDependenciesManager.GITHUB_LIBRARIES_FILE, 'utf8');
-      librariesFile = JSON.parse(data)
+      const data = fs.readFileSync(GithubDependenciesManager.GITHUB_LIBRARIES_FILE, "utf8");
+      librariesFile = JSON.parse(data);
       for (let i = 0; i < librariesFile.libraries.length; i++) {
-        const library = librariesFile.libraries[i]
-        await timer(3000)
+        const library = librariesFile.libraries[i];
+        await timer(3000);
         await NetworkInstance.getGithubRepositoriesInstance().get<Array<GithubRepositoryRelease>>(NetworkInstance.GITHUB_REPOS_KEY + library.url + NetworkInstance.GITHUB_RELEASES_KEY, {
           method: "get"
         }).then((response) => {
           if (response.status == NetworkInstance.SUCCESS_RESPONSE_CODE) {
-            console.log(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Library : " + library.url + " Response : " + response.data.toString())
+            console.log(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Library : " + library.url + " Response : " + response.data.toString());
             librariesInformation.push({
               name: library.name,
               url: library.url,
               releases: response.data
-            })
+            });
           } else {
-            console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + response.data)
+            console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + response.data);
           }
         }).catch((exception) => {
-          console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception)
+          console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception);
         });
       }
 
-      const librariesCacheFile = new GithubLibrariesCacheContainer(new Array<GithubCacheLibrary>())
+      const librariesCacheFile = new GithubLibrariesCacheContainer(new Array<GithubCacheLibrary>());
       for (let i = 0; i < librariesInformation.length; i++) {
         try {
-          const library = librariesInformation[i]
+          const library = librariesInformation[i];
           librariesCacheFile.libraries.push({
             name: library.name,
             release: library.releases[library.releases.length - 1].ref.replace("refs/tags/", "")
-          })
+          });
         } catch (error) {
-          console.error(error)
+          console.error(error);
         }
       }
 
       const json = JSON.stringify(librariesCacheFile, null, "\t");
-      fs.writeFile(GithubDependenciesManager.GITHUB_CACHE_FILE, json, 'utf8', (exception) => {
+      fs.writeFile(GithubDependenciesManager.GITHUB_CACHE_FILE, json, "utf8", (exception) => {
         if (exception != null) {
           console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception);
         }

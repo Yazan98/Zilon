@@ -1,7 +1,7 @@
 export class GoogleMavenLibrary {
   constructor(
     public groupId: string,
-    public artifacts: Array<GoogleMavenArtifact>,
+    public artifacts: Array<GoogleMavenArtifact>
   ) {
   }
 }

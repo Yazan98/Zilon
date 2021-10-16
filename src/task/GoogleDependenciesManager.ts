@@ -32,16 +32,16 @@ export class GoogleDependenciesManager {
    * isGoogleMavenRepositoryEnabled this Value will be returned from config.json File with the Project Files
    */
   public getAllPackages() {
-    let isGoogleMavenRepositoryEnabled = true
+    let isGoogleMavenRepositoryEnabled = true;
     let configFile = new ApplicationConfigFile("", "", "", true, "", "");
     if (fs.existsSync(GoogleDependenciesManager.CONFIG_FILE)) {
-      const dataFile = fs.readFileSync(GoogleDependenciesManager.CONFIG_FILE)
+      const dataFile = fs.readFileSync(GoogleDependenciesManager.CONFIG_FILE);
       configFile = JSON.parse(dataFile.toString());
       isGoogleMavenRepositoryEnabled = configFile.isGoogleMavenRepositoryEnabled;
     }
 
     if (!isGoogleMavenRepositoryEnabled) {
-      return
+      return;
     }
 
     NetworkInstance.getGoogleMavenRepositoriesInstance().get(NetworkInstance.ANDROID_MAVEN_PATH + NetworkInstance.ANDROID_ALL_LIBRARIES, {
@@ -71,7 +71,7 @@ export class GoogleDependenciesManager {
       if (!responseValue[i].includes(GoogleDependenciesManager.SKIP_XML_HEADER_TAG) && !responseValue[i].includes(GoogleDependenciesManager.SKIP_META_DATA_TAG)) {
         const targetValue = responseValue[i].replace("<", "").replace("/>", "");
         console.log(GoogleDependenciesManager.CONSOLE_LOGGING_KEY + " Library : " + targetValue);
-        librariesArray.push(targetValue)
+        librariesArray.push(targetValue);
       }
     }
 
@@ -87,7 +87,7 @@ export class GoogleDependenciesManager {
    */
   private async getLibrariesVersions(libraries: Array<string>) {
     if (libraries == null) {
-      return
+      return;
     }
 
     let librariesArray: Array<GoogleMavenLibrary> = new Array<GoogleMavenLibrary>();
@@ -97,19 +97,19 @@ export class GoogleDependenciesManager {
         continue;
       }
 
-      await timer(1000)
-      console.log("Start Validating Group Index For Path : " + libraries[i])
+      await timer(1000);
+      console.log("Start Validating Group Index For Path : " + libraries[i]);
       await NetworkInstance.getGoogleMavenRepositoriesInstance().get(NetworkInstance.ANDROID_MAVEN_PATH + libraries[i].split(".").join("/").trim() + NetworkInstance.GROUP_ARTIFACTS, {
         method: "get"
       }).then((response) => {
-        const artifacts = this.getArtifactsByGroupRequest(response.data.toString().split("\n"))
+        const artifacts = this.getArtifactsByGroupRequest(response.data.toString().split("\n"));
         librariesArray.push({
           groupId: libraries[i],
           artifacts: artifacts
-        })
+        });
       }).catch((exception) => {
         console.error(GoogleDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception);
-      })
+      });
     }
 
     this.validateLibrariesUpdatedVersions(librariesArray);
@@ -124,21 +124,21 @@ export class GoogleDependenciesManager {
    * @private
    */
   private getArtifactsByGroupRequest(response: Array<string>): Array<GoogleMavenArtifact> {
-    let artifacts = Array<GoogleMavenArtifact>()
+    let artifacts = Array<GoogleMavenArtifact>();
     for (let i = 0; i < response.length; i++) {
       if (i == 0 || i == 1 || i == response.length - 2 || response[i] === "") {
         continue;
       }
 
-      const libraryInfo = response[i].trim()
-      const artifactName = libraryInfo.split(" ")[0].replace("<", "")
-      const versions = libraryInfo.split("=\"")[1]
+      const libraryInfo = response[i].trim();
+      const artifactName = libraryInfo.split(" ")[0].replace("<", "");
+      const versions = libraryInfo.split("=\"")[1];
       artifacts.push({
         name: artifactName,
         versions: versions.replace("\"/>", "").split(",")
-      })
+      });
     }
-    return artifacts
+    return artifacts;
   }
 
   /**
@@ -163,13 +163,14 @@ export class GoogleDependenciesManager {
   }
 
   private validateUpdatedLibraries(librariesArray: Array<GoogleMavenLibrary>) {
-    fs.readFile(GoogleDependenciesManager.GOOGLE_LIBRARIES_CACHE_FILE, 'utf8', function readFileCallback(err, data){
-      if (err){
+    fs.readFile(GoogleDependenciesManager.GOOGLE_LIBRARIES_CACHE_FILE, "utf8", function readFileCallback(err, data) {
+      if (err) {
         console.log(err);
       } else {
         GoogleDependenciesManager.validateUpdatedDependencies(data, librariesArray);
         GoogleDependenciesManager.createGoogleCacheFile(librariesArray);
-      }});
+      }
+    });
   }
 
   /**
@@ -183,15 +184,15 @@ export class GoogleDependenciesManager {
     };
 
     for (let i = 0; i < librariesArray.length; i++) {
-      const library = librariesArray[i]
+      const library = librariesArray[i];
       googleLibrariesObject.libraries.push({
         groupId: library.groupId.trim(),
         artifacts: library.artifacts
-      })
+      });
     }
 
     const json = JSON.stringify(googleLibrariesObject, null, "\t");
-    fs.writeFile(GoogleDependenciesManager.GOOGLE_LIBRARIES_FILE, json, 'utf8', (exception) => {
+    fs.writeFile(GoogleDependenciesManager.GOOGLE_LIBRARIES_FILE, json, "utf8", (exception) => {
       if (exception != null) {
         console.error(GoogleDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception);
       }
@@ -211,24 +212,24 @@ export class GoogleDependenciesManager {
     };
 
     for (let i = 0; i < librariesArray.length; i++) {
-      const library = librariesArray[i]
-      const artifacts = Array<GoogleCacheArtifact>()
+      const library = librariesArray[i];
+      const artifacts = Array<GoogleCacheArtifact>();
       for (let j = 0; j < library.artifacts.length; j++) {
-        const currentArtifact = library.artifacts[j]
+        const currentArtifact = library.artifacts[j];
         artifacts.push({
           artifact: currentArtifact.name,
           version: currentArtifact.versions[0]
-        })
+        });
       }
 
       googleCacheObject.libraries.push({
         groupId: library.groupId.trim(),
         artifacts: artifacts
-      })
+      });
     }
 
     const json = JSON.stringify(googleCacheObject, null, "\t");
-    fs.writeFile(GoogleDependenciesManager.GOOGLE_LIBRARIES_CACHE_FILE, json, 'utf8', (exception) => {
+    fs.writeFile(GoogleDependenciesManager.GOOGLE_LIBRARIES_CACHE_FILE, json, "utf8", (exception) => {
       if (exception != null) {
         console.error(GoogleDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception);
       }
@@ -240,12 +241,12 @@ export class GoogleDependenciesManager {
       libraries: []
     };
 
-    const librariesToUpdate = new Array<LibraryUpdateModel>()
+    const librariesToUpdate = new Array<LibraryUpdateModel>();
     googleCacheObject = JSON.parse(data);
     for (let i = 0; i < googleCacheObject.libraries.length; i++) {
       const library = googleCacheObject.libraries[i];
       for (let j = 0; j < librariesArray.length; j++) {
-        const newLibrary = librariesArray[i]
+        const newLibrary = librariesArray[i];
         if (newLibrary.groupId.includes(library.groupId)) {
           if (newLibrary.artifacts[0].versions[0] !== library.artifacts[0].version) {
             librariesToUpdate.push({
@@ -255,8 +256,8 @@ export class GoogleDependenciesManager {
               url: "",
               isGithubSource: false,
               releaseUrl: "",
-              name: "",
-            })
+              name: ""
+            });
           }
         }
       }

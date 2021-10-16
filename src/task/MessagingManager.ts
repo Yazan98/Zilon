@@ -28,17 +28,17 @@ export class MessagingManager {
   public sendMessageUpdateDependencies(libraries: Array<LibraryUpdateModel>) {
     let configFile = new ApplicationConfigFile("", "", "", true, "", "");
     const fs = require("fs");
-    const data = fs.readFileSync(MessagingManager.CONFIG_FILE, 'utf8');
-    configFile = JSON.parse(data)
+    const data = fs.readFileSync(MessagingManager.CONFIG_FILE, "utf8");
+    configFile = JSON.parse(data);
     for (let i = 0; i < libraries.length; i++) {
-      const library = libraries[i]
+      const library = libraries[i];
       let message = "";
       if (library.isGithubSource) {
         message += MessagingManager.getGithubMessageString(library);
       } else {
         message += MessagingManager.getMessageString(library);
       }
-      MessagingManager.sendSlackMessage(configFile, message)
+      MessagingManager.sendSlackMessage(configFile, message);
     }
   }
 
@@ -49,11 +49,11 @@ export class MessagingManager {
   public sendCronJobStartEvent() {
     let configFile = new ApplicationConfigFile("", "", "", true, "", "");
     const fs = require("fs");
-    const data = fs.readFileSync(MessagingManager.CONFIG_FILE, 'utf8');
-    configFile = JSON.parse(data)
+    const data = fs.readFileSync(MessagingManager.CONFIG_FILE, "utf8");
+    configFile = JSON.parse(data);
 
-    configFile.channelId = "#general"
-    MessagingManager.sendSlackMessage(configFile, "Zilon Scheduler Started To Check All Libraries ...")
+    configFile.channelId = "#general";
+    MessagingManager.sendSlackMessage(configFile, "Zilon Scheduler Started To Check All Libraries ...");
   }
 
   /**
@@ -65,12 +65,12 @@ export class MessagingManager {
    */
   private static getGithubMessageString(library: LibraryUpdateModel): string {
     let message = "";
-    message += "*" + MessagingManager.capitalizeFirstLetter(library.name) + " Released New Version *\n"
-    message += " 1. Library Releases Link : " + library.releaseUrl + " \n"
-    message += " 2. Library Url : " + library.url + " \n"
-    message += " 3. Library Version : " + library.version + " \n"
+    message += "*" + MessagingManager.capitalizeFirstLetter(library.name) + " Released New Version *\n";
+    message += " 1. Library Releases Link : " + library.releaseUrl + " \n";
+    message += " 2. Library Url : " + library.url + " \n";
+    message += " 3. Library Version : " + library.version + " \n";
 
-    return message
+    return message;
   }
 
   /**
@@ -84,14 +84,14 @@ export class MessagingManager {
     let isPlugin = false;
     let message = "";
     if (library.artifact.includes("plugin")) {
-      isPlugin = true
+      isPlugin = true;
     }
-    message += "*" + MessagingManager.capitalizeFirstLetter(library.artifact.split("-").join(" ")) + " Released New Version *\n"
-    message += " 1. New Version : " + library.version + "\n"
+    message += "*" + MessagingManager.capitalizeFirstLetter(library.artifact.split("-").join(" ")) + " Released New Version *\n";
+    message += " 1. New Version : " + library.version + "\n";
     if (isPlugin) {
-      message += " 2. Update Plugin : " + "classpath (\'" + library.groupId + ":" + library.artifact + ":" + library.version + "\')" + "\n"
+      message += " 2. Update Plugin : " + "classpath (\'" + library.groupId + ":" + library.artifact + ":" + library.version + "\')" + "\n";
     } else {
-      message += " 2. Update Dependency : " + "implementation \'" + library.groupId + ":" + library.artifact + ":" + library.version + "\'" + "\n"
+      message += " 2. Update Dependency : " + "implementation \'" + library.groupId + ":" + library.artifact + ":" + library.version + "\'" + "\n";
     }
 
     if (library.groupId.includes(MessagingManager.FIREBASE_KEY)) {
@@ -99,7 +99,7 @@ export class MessagingManager {
       message += " 4. Release Notes : " + MessagingManager.RELEASE_NOTES_FIREBASE + "\n";
     }
 
-    return message
+    return message;
   }
 
   private static capitalizeFirstLetter(string) {
@@ -113,13 +113,13 @@ export class MessagingManager {
         mrkdwn: true,
         text: message,
         as_user: true,
-        parse: 'full',
-        username: 'Zilon'
+        parse: "full",
+        username: "Zilon"
       }).then((response) => {
         console.log("Slack Message Response : " + response.message.text);
       }).catch((exception) => {
         console.error(exception);
-      })
+      });
     } catch (error) {
       console.error(error);
     }
@@ -127,40 +127,40 @@ export class MessagingManager {
 
   private static getFirebaseDocumentationUrl(artifact: string): string {
     if (artifact.includes("firestore")) {
-      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/firestore"
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/firestore";
     } else if (artifact.includes("crashlytics")) {
-      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/crashlytics"
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/crashlytics";
     } else if (artifact.includes("analytics")) {
-      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/analytics"
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/analytics";
     } else if (artifact.includes("ads")) {
-      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/ads"
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/ads";
     } else if (artifact.includes("appindexing")) {
-      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/appindexing"
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/appindexing";
     } else if (artifact.includes("auth")) {
-      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/auth"
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/auth";
     } else if (artifact.includes("config")) {
-      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/config"
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/config";
     } else if (artifact.includes("database")) {
-      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/database"
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/database";
     } else if (artifact.includes("dynamic-links")) {
-      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/dynamic-links"
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/dynamic-links";
     } else if (artifact.includes("functions")) {
-      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/functions"
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/functions";
     } else if (artifact.includes("invites")) {
-      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/invites"
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/invites";
     } else if (artifact.includes("messaging")) {
-      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/messaging"
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/messaging";
     } else if (artifact.includes("storage")) {
-      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/storage"
+      return MessagingManager.FIREBASE_BASE_URL_DOCUMENTATION + "/storage";
     } else {
-      return "UnKnown"
+      return "UnKnown";
     }
   }
 
   private static getSlackApplicationInstance(signingSecrete: string, token: string): App {
     return new App({
       signingSecret: signingSecrete,
-      token: token,
+      token: token
     });
   }
 
