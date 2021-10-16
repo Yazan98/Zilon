@@ -34,7 +34,6 @@ export class GithubDependenciesManager {
       configFile = JSON.parse(dataFile.toString());
     }
 
-
     let librariesInformation = new Array<GithubRepositoriesInformation>()
     let librariesFile = new GithubContainerFileContent(new Array<GithubLibrary>())
     if (fs.existsSync(GithubDependenciesManager.GITHUB_LIBRARIES_FILE)) {
@@ -42,7 +41,7 @@ export class GithubDependenciesManager {
       librariesFile = JSON.parse(data)
       for (let i = 0; i < librariesFile.libraries.length; i++) {
         const library = librariesFile.libraries[i]
-        await timer(3000)
+        await timer(5000)
         await NetworkInstance.getGithubRepositoriesInstance().get<Array<GithubRepositoryRelease>>(this.getGithubRequestUrl(configFile, NetworkInstance.GITHUB_REPOS_KEY + library.url + NetworkInstance.GITHUB_RELEASES_KEY), {
           method: "get"
         }).then((response) => {
@@ -89,7 +88,7 @@ export class GithubDependenciesManager {
           for (let j = 0; j < libraries.length; j++) {
             const triggeredLibrary = libraries[j]
             if (cachedLibrary.name.includes(triggeredLibrary.name) && triggeredLibrary.releases != null) {
-              if (cachedLibrary.release !== triggeredLibrary.releases[triggeredLibrary.releases.length - 1].ref.replace("refs/tags/", "")) {
+              if (!cachedLibrary.release.includes(triggeredLibrary.releases[triggeredLibrary.releases.length - 1].ref.replace("refs/tags/", ""))) {
                 console.log(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Library Need Update : " + triggeredLibrary.name + " Version : " + cachedLibrary.release + " Updated Version : " + triggeredLibrary.releases[triggeredLibrary.releases.length - 1].ref.replace("refs/tags/", ""))
                 requireUpdateLibraries.push({
                   isGithubSource: true,
@@ -119,14 +118,18 @@ export class GithubDependenciesManager {
    */
   private static saveNewGithubRepositoriesCacheFile(libraries: Array<GithubRepositoriesInformation>) {
     const fs = require('fs');
-    if (!fs.existsSync(GithubDependenciesManager.GITHUB_CACHE_FILE)) {
+    if (fs.existsSync(GithubDependenciesManager.GITHUB_CACHE_FILE)) {
       const librariesFile = new GithubLibrariesCacheContainer(new Array<GithubCacheLibrary>())
       for (let i = 0; i < libraries.length; i++) {
-        const library = libraries[i]
-        librariesFile.libraries.push({
-          name: library.name,
-          release: library.releases[library.releases.length - 1].ref.replace("refs/tags/", "")
-        })
+        try {
+          const library = libraries[i]
+          librariesFile.libraries.push({
+            name: library.name,
+            release: library.releases[library.releases.length - 1].ref.replace("refs/tags/", "")
+          })
+        } catch (error) {
+          console.error(error)
+        }
       }
 
       const json = JSON.stringify(librariesFile, null, "\t");

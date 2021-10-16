@@ -7,7 +7,7 @@ import { GithubDependenciesManager } from "./GithubDependenciesManager";
 @Injectable()
 export class TasksService {
 
-  @Cron(CronExpression.EVERY_30_MINUTES, {
+  @Cron(CronExpression.EVERY_DAY_AT_1AM, {
     name: 'dependencies',
   })
   handleCron() {
