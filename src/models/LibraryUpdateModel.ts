@@ -6,8 +6,7 @@ export class LibraryUpdateModel {
     public isGithubSource: boolean,
     public url: string,
     public releaseUrl: string,
-    public name: string,
-    public isPreRelease: boolean
+    public name: string
   ) {
   }
 }

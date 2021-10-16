@@ -6,7 +6,6 @@ import {
 } from "../models/GithubLibrary";
 import { NetworkInstance } from "./NetworkInstance";
 import { timer } from "rxjs";
-import fs from "fs";
 import { LibraryUpdateModel } from "../models/LibraryUpdateModel";
 import { MessagingManager } from "./MessagingManager";
 
@@ -77,16 +76,15 @@ export class GithubDependenciesManager {
           for (let j = 0; j < libraries.length; j++) {
             const triggeredLibrary = libraries[j]
             if (cachedLibrary.name === triggeredLibrary.name && triggeredLibrary.releases != null) {
-              if (cachedLibrary.release !== triggeredLibrary.releases[0].name) {
+              if (cachedLibrary.release !== triggeredLibrary.releases[triggeredLibrary.releases.length - 1].ref) {
                 requireUpdateLibraries.push({
                   isGithubSource: true,
-                  releaseUrl: triggeredLibrary.releases[0].html_url,
-                  version: triggeredLibrary.releases[0].name,
+                  releaseUrl: "https://github.com/" + triggeredLibrary.url + "/releases",
+                  version: triggeredLibrary.releases[triggeredLibrary.releases.length - 1].ref.replace("refs/tags/", ""),
                   url: "https://github.com/" + triggeredLibrary.url,
                   artifact: "",
                   groupId: "",
-                  name: triggeredLibrary.url.split("/")[1],
-                  isPreRelease: triggeredLibrary.releases[0].prerelease
+                  name: triggeredLibrary.url.split("/")[1]
                 })
               }
             }
@@ -113,7 +111,7 @@ export class GithubDependenciesManager {
         const library = libraries[i]
         librariesFile.libraries.push({
           name: library.name,
-          release: library.releases[0].name
+          release: library.releases[0].ref
         })
       }
 

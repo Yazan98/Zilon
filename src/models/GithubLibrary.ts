@@ -32,7 +32,7 @@ export class GithubCacheLibrary {
 export class GithubRepositoryRelease {
   constructor(
     public html_url: string,
-    public name: string,
+    public ref: string,
     public prerelease: boolean,
   ) {
   }

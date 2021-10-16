@@ -237,7 +237,6 @@ export class GoogleDependenciesManager {
               isGithubSource: false,
               releaseUrl: "",
               name: "",
-              isPreRelease: false
             })
           }
         }

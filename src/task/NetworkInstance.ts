@@ -11,7 +11,7 @@ export class NetworkInstance {
   public static ANDROID_ALL_LIBRARIES = 'master-index.xml';
   public static GROUP_ARTIFACTS = "/group-index.xml";
   public static GITHUB_REPOS_KEY = "/repos/";
-  public static GITHUB_RELEASES_KEY = "releases";
+  public static GITHUB_RELEASES_KEY = "/git/refs/tags";
 
   public static getGithubRepositoriesInstance(): Axios {
     let instance = axios.create({
