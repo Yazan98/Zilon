@@ -164,6 +164,11 @@ export class GithubDependenciesManager {
     }
   }
 
+  /**
+   * This Option is Available When you want To Make Snapshot of all releases on all Available Github Repositories
+   * This Method Will read The Github Repositories One Time and Get all Latest Versions To Cache Them
+   * Then Next Time The Cron Job will Check Each one of them if updated will Send Slack Message then Update The Cache File
+   */
   public async createGithubCacheFileForAllRepositories() {
     const fs = require('fs');
     let librariesInformation = new Array<GithubRepositoriesInformation>()

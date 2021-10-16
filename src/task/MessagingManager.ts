@@ -28,6 +28,16 @@ export class MessagingManager {
     }
   }
 
+  public sendCronJobStartEvent() {
+    let configFile = new ApplicationConfigFile("", "", "", true);
+    const fs = require("fs");
+    const data = fs.readFileSync(MessagingManager.CONFIG_FILE, 'utf8');
+    configFile = JSON.parse(data)
+
+    configFile.channelId = "#general"
+    MessagingManager.sendSlackMessage(configFile, "Zilon Scheduler Started To Check All Libraries ...")
+  }
+
   private static getGithubMessageString(library: LibraryUpdateModel): string {
     let message = "";
     message += "*" + MessagingManager.capitalizeFirstLetter(library.name) + " Released New Version *\n"

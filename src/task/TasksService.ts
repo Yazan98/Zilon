@@ -1,15 +1,23 @@
-import { Injectable, Logger } from '@nestjs/common';
-import { Cron, CronExpression, Timeout } from '@nestjs/schedule';
+import { Injectable } from '@nestjs/common';
+import { Cron, CronExpression } from '@nestjs/schedule';
+import { MessagingManager } from "./MessagingManager";
+import { GoogleDependenciesManager } from "./GoogleDependenciesManager";
+import { GithubDependenciesManager } from "./GithubDependenciesManager";
 
 @Injectable()
 export class TasksService {
-  private readonly logger = new Logger(TasksService.name);
 
-  @Timeout(500000)
   @Cron(CronExpression.EVERY_DAY_AT_1AM, {
     name: 'dependencies',
   })
   handleCron() {
-    this.logger.debug('Called when the current second is 45');
+    new MessagingManager().sendCronJobStartEvent();
+    new GoogleDependenciesManager().getAllPackages();
+    new GithubDependenciesManager().validateGithubLibrariesFile().then(() => {
+      console.log("Anything ... from GithubDependenciesManager")
+    }).catch((exception) => {
+      console.error(exception)
+    });
   }
+
 }
