@@ -1,0 +1,8 @@
+{
+    "githubClientId": "Github App Client Id",
+    "githubClientSecrete": "Github App Token",
+    "token": "Slack App Token",
+    "channelId": "#releases",
+    "signingSecret": "Slack Signing Key",
+    "isGoogleMavenRepositoryEnabled": true
+}
