@@ -26,7 +26,7 @@ export class MessagingManager {
    * @param libraries
    */
   public sendMessageUpdateDependencies(libraries: Array<LibraryUpdateModel>) {
-    let configFile = new ApplicationConfigFile("", "", "", true);
+    let configFile = new ApplicationConfigFile("", "", "", true, "", "");
     const fs = require("fs");
     const data = fs.readFileSync(MessagingManager.CONFIG_FILE, 'utf8');
     configFile = JSON.parse(data)
@@ -47,7 +47,7 @@ export class MessagingManager {
    * That the Cron Job is Started ... Logging xD
    */
   public sendCronJobStartEvent() {
-    let configFile = new ApplicationConfigFile("", "", "", true);
+    let configFile = new ApplicationConfigFile("", "", "", true, "", "");
     const fs = require("fs");
     const data = fs.readFileSync(MessagingManager.CONFIG_FILE, 'utf8');
     configFile = JSON.parse(data)

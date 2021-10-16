@@ -2,11 +2,11 @@
 	"libraries": [
 		{
 			"name": "danger",
-			"release": "8.3.1"
+			"release": "5."
 		},
 		{
 			"name": "angular",
-			"release": "13.0.0-rc.0"
+			"release": "13"
 		},
 		{
 			"name": "angular",
@@ -14,11 +14,11 @@
 		},
 		{
 			"name": "githunt",
-			"release": "3.0"
+			"release": "1.0"
 		},
 		{
 			"name": "roadmap.sh",
-			"release": "2.0"
+			"release": "2"
 		},
 		{
 			"name": "RxLifecycle",
@@ -26,7 +26,7 @@
 		},
 		{
 			"name": "flexbox-layout",
-			"release": "3.0.0"
+			"release": "1.0.0"
 		},
 		{
 			"name": "vercel",
@@ -42,7 +42,7 @@
 		},
 		{
 			"name": "Alerter",
-			"release": "7.2.4"
+			"release": "7.2"
 		},
 		{
 			"name": "vscode",
@@ -58,7 +58,7 @@
 		},
 		{
 			"name": "react",
-			"release": "16.1.0"
+			"release": "15.1.0"
 		},
 		{
 			"name": "nest",
@@ -74,7 +74,7 @@
 		},
 		{
 			"name": "stream-chat-android",
-			"release": "4.19.0"
+			"release": "5.0"
 		},
 		{
 			"name": "cypress",
@@ -90,7 +90,7 @@
 		},
 		{
 			"name": "fresco",
-			"release": "v2.6.0"
+			"release": "v7.0"
 		},
 		{
 			"name": "litho",
@@ -126,7 +126,7 @@
 		},
 		{
 			"name": "logstash",
-			"release": "7.0.0-alpha2"
+			"release": "7.0.0"
 		},
 		{
 			"name": "kafka",

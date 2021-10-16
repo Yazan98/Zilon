@@ -8,12 +8,14 @@ import { NetworkInstance } from "./NetworkInstance";
 import { timer } from "rxjs";
 import { LibraryUpdateModel } from "../models/LibraryUpdateModel";
 import { MessagingManager } from "./MessagingManager";
+import { ApplicationConfigFile } from "../models/ApplicationConfigFile";
 
 export class GithubDependenciesManager {
 
   private static GITHUB_LIBRARIES_FILE = "github-libraries.json";
-  private static CONSOLE_LOGGING_KEY = "[Github Dependencies Manager]"
-  private static GITHUB_CACHE_FILE = "github-libraries-cache.json"
+  private static CONSOLE_LOGGING_KEY = "[Github Dependencies Manager]";
+  private static GITHUB_CACHE_FILE = "github-libraries-cache.json";
+  private static CONFIG_FILE = "config.json";
 
   /**
    * Main Method to Start inside This Manager
@@ -26,6 +28,13 @@ export class GithubDependenciesManager {
     const fs = require('fs');
     this.createGithubLibrariesFile();
 
+    let configFile = new ApplicationConfigFile("", "", "", true, "", "");
+    if (fs.existsSync(GithubDependenciesManager.CONFIG_FILE)) {
+      const dataFile = fs.readFileSync(GithubDependenciesManager.CONFIG_FILE)
+      configFile = JSON.parse(dataFile.toString());
+    }
+
+
     let librariesInformation = new Array<GithubRepositoriesInformation>()
     let librariesFile = new GithubContainerFileContent(new Array<GithubLibrary>())
     if (fs.existsSync(GithubDependenciesManager.GITHUB_LIBRARIES_FILE)) {
@@ -34,7 +43,7 @@ export class GithubDependenciesManager {
       for (let i = 0; i < librariesFile.libraries.length; i++) {
         const library = librariesFile.libraries[i]
         await timer(3000)
-        await NetworkInstance.getGithubRepositoriesInstance().get<Array<GithubRepositoryRelease>>(NetworkInstance.GITHUB_REPOS_KEY + library.url + NetworkInstance.GITHUB_RELEASES_KEY, {
+        await NetworkInstance.getGithubRepositoriesInstance().get<Array<GithubRepositoryRelease>>(this.getGithubRequestUrl(configFile, NetworkInstance.GITHUB_REPOS_KEY + library.url + NetworkInstance.GITHUB_RELEASES_KEY), {
           method: "get"
         }).then((response) => {
             if (response.status == NetworkInstance.SUCCESS_RESPONSE_CODE) {
@@ -44,7 +53,7 @@ export class GithubDependenciesManager {
                 releases: response.data
               })
             } else {
-              console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + response.data)
+              console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + response.data + " Response : " + response.statusText)
             }
         }).catch((exception) => {
           console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception)
@@ -53,6 +62,10 @@ export class GithubDependenciesManager {
 
       this.validateGithubRepositoriesReleasesVersions(librariesInformation);
     }
+  }
+
+  private getGithubRequestUrl(config: ApplicationConfigFile, url: string): string {
+    return url + "?client_id=" + config.githubClientId + "&client_secret=" + config.githubClientSecrete
   }
 
   /**
@@ -75,8 +88,9 @@ export class GithubDependenciesManager {
           const cachedLibrary = librariesFile.libraries[i]
           for (let j = 0; j < libraries.length; j++) {
             const triggeredLibrary = libraries[j]
-            if (cachedLibrary.name === triggeredLibrary.name && triggeredLibrary.releases != null) {
-              if (cachedLibrary.release !== triggeredLibrary.releases[triggeredLibrary.releases.length - 1].ref) {
+            if (cachedLibrary.name.includes(triggeredLibrary.name) && triggeredLibrary.releases != null) {
+              if (cachedLibrary.release !== triggeredLibrary.releases[triggeredLibrary.releases.length - 1].ref.replace("refs/tags/", "")) {
+                console.log(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Library Need Update : " + triggeredLibrary.name + " Version : " + cachedLibrary.release + " Updated Version : " + triggeredLibrary.releases[triggeredLibrary.releases.length - 1].ref.replace("refs/tags/", ""))
                 requireUpdateLibraries.push({
                   isGithubSource: true,
                   releaseUrl: "https://github.com/" + triggeredLibrary.url + "/releases",
@@ -111,7 +125,7 @@ export class GithubDependenciesManager {
         const library = libraries[i]
         librariesFile.libraries.push({
           name: library.name,
-          release: library.releases[0].ref
+          release: library.releases[library.releases.length - 1].ref.replace("refs/tags/", "")
         })
       }
 

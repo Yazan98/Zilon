@@ -33,7 +33,7 @@ export class GoogleDependenciesManager {
    */
   public getAllPackages() {
     let isGoogleMavenRepositoryEnabled = true
-    let configFile = new ApplicationConfigFile("", "", "", true);
+    let configFile = new ApplicationConfigFile("", "", "", true, "", "");
     if (fs.existsSync(GoogleDependenciesManager.CONFIG_FILE)) {
       const dataFile = fs.readFileSync(GoogleDependenciesManager.CONFIG_FILE)
       configFile = JSON.parse(dataFile.toString());
@@ -240,13 +240,13 @@ export class GoogleDependenciesManager {
       libraries: []
     };
 
-    const librariesToUpdate = Array<LibraryUpdateModel>()
+    const librariesToUpdate = new Array<LibraryUpdateModel>()
     googleCacheObject = JSON.parse(data);
     for (let i = 0; i < googleCacheObject.libraries.length; i++) {
       const library = googleCacheObject.libraries[i];
       for (let j = 0; j < librariesArray.length; j++) {
         const newLibrary = librariesArray[i]
-        if (newLibrary.groupId === library.groupId) {
+        if (newLibrary.groupId.includes(library.groupId)) {
           if (newLibrary.artifacts[0].versions[0] !== library.artifacts[0].version) {
             librariesToUpdate.push({
               groupId: newLibrary.groupId,
