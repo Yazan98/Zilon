@@ -12,7 +12,7 @@ export class MessagingManager {
   private static RELEASE_NOTES_FIREBASE = "https://firebase.google.com/support/release-notes/android";
 
   public sendMessageUpdateDependencies(libraries: Array<LibraryUpdateModel>) {
-    let configFile = new ApplicationConfigFile("", "", "");
+    let configFile = new ApplicationConfigFile("", "", "", true);
     const fs = require("fs");
     const data = fs.readFileSync(MessagingManager.CONFIG_FILE, 'utf8');
     configFile = JSON.parse(data)

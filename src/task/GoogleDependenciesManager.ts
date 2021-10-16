@@ -4,6 +4,7 @@ import { timer } from "rxjs";
 import * as fs from "fs";
 import { LibraryUpdateModel } from "../models/LibraryUpdateModel";
 import { MessagingManager } from "./MessagingManager";
+import { ApplicationConfigFile } from "../models/ApplicationConfigFile";
 
 /**
  * This Class is the Dependeices Checker Manager To Check on All Google Dependenices
@@ -18,13 +19,31 @@ export class GoogleDependenciesManager {
   private static SKIP_XML_HEADER_TAG = "xml version='1.0'";
   private static GOOGLE_LIBRARIES_FILE = "google-libraries.json";
   private static GOOGLE_LIBRARIES_CACHE_FILE = "google-cache.json";
+  private static CONFIG_FILE = "config.json";
 
   /**
    * This Method is The Start Point To Get All Packages From Google Maven Repository
    * This Request Will Return Xml Response With All Packages In Google Repository For Android Development
    * The Script Will Split them Via New Line to Loop On Each Line And Read The Value inside Xml Tag to get Group Id
+   *
+   * Zilon Could be Used just for Github Repositories
+   * For this Reason we have flag to Enable or Disable Google Maven Repository
+   * To Just Enable the Monitoring on Github Repos Only
+   * isGoogleMavenRepositoryEnabled this Value will be returned from config.json File with the Project Files
    */
   public getAllPackages() {
+    let isGoogleMavenRepositoryEnabled = true
+    let configFile = new ApplicationConfigFile("", "", "", true);
+    if (fs.existsSync(GoogleDependenciesManager.CONFIG_FILE)) {
+      const dataFile = fs.readFileSync(GoogleDependenciesManager.CONFIG_FILE)
+      configFile = JSON.parse(dataFile.toString());
+      isGoogleMavenRepositoryEnabled = configFile.isGoogleMavenRepositoryEnabled;
+    }
+
+    if (!isGoogleMavenRepositoryEnabled) {
+      return
+    }
+
     NetworkInstance.getGoogleMavenRepositoriesInstance().get(NetworkInstance.ANDROID_MAVEN_PATH + NetworkInstance.ANDROID_ALL_LIBRARIES, {
       method: "get"
     }).then((response) => {

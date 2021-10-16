@@ -151,6 +151,10 @@
     {
       "name": "docker",
       "url": "microsoft/docker"
+    },
+    {
+      "name": "retrofit",
+      "url": "square/retrofit"
     }
   ]
 }

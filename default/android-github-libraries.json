@@ -82,6 +82,10 @@
 		{
 			"name": "glide",
 			"url": "bumptech/glide"
+		},
+		{
+			"name": "retrofit",
+			"url": "square/retrofit"
 		}
 	]
 }
