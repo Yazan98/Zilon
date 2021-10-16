@@ -164,4 +164,54 @@ export class GithubDependenciesManager {
     }
   }
 
+  public async createGithubCacheFileForAllRepositories() {
+    const fs = require('fs');
+    let librariesInformation = new Array<GithubRepositoriesInformation>()
+    let librariesFile = new GithubContainerFileContent(new Array<GithubLibrary>())
+
+    if (fs.existsSync(GithubDependenciesManager.GITHUB_LIBRARIES_FILE)) {
+      const data = fs.readFileSync(GithubDependenciesManager.GITHUB_LIBRARIES_FILE, 'utf8');
+      librariesFile = JSON.parse(data)
+      for (let i = 0; i < librariesFile.libraries.length; i++) {
+        const library = librariesFile.libraries[i]
+        await timer(3000)
+        await NetworkInstance.getGithubRepositoriesInstance().get<Array<GithubRepositoryRelease>>(NetworkInstance.GITHUB_REPOS_KEY + library.url + NetworkInstance.GITHUB_RELEASES_KEY, {
+          method: "get"
+        }).then((response) => {
+          if (response.status == NetworkInstance.SUCCESS_RESPONSE_CODE) {
+            librariesInformation.push({
+              name: library.name,
+              url: library.url,
+              releases: response.data
+            })
+          } else {
+            console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + response.data)
+          }
+        }).catch((exception) => {
+          console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception)
+        });
+      }
+
+      const librariesCacheFile = new GithubLibrariesCacheContainer(new Array<GithubCacheLibrary>())
+      for (let i = 0; i < librariesInformation.length; i++) {
+        try {
+          const library = librariesInformation[i]
+          librariesCacheFile.libraries.push({
+            name: library.name,
+            release: library.releases[library.releases.length - 1].ref.replace("refs/tags/", "")
+          })
+        } catch (error) {
+          console.error(error)
+        }
+      }
+
+      const json = JSON.stringify(librariesCacheFile, null, "\t");
+      fs.writeFile(GithubDependenciesManager.GITHUB_CACHE_FILE, json, 'utf8', (exception) => {
+        if (exception != null) {
+          console.error(GithubDependenciesManager.CONSOLE_LOGGING_KEY + " Exception : " + exception);
+        }
+      });
+    }
+  }
+
 }
