@@ -2,6 +2,15 @@ import { LibraryUpdateModel } from "../models/LibraryUpdateModel";
 import { App } from "@slack/bolt";
 import { ApplicationConfigFile } from "../models/ApplicationConfigFile";
 
+/**
+ * This Messaging Manager is the Class that will take Care of Slack Integration
+ * In the Future if Discord will be Supported Should be Enabled or Disabled in this Class Only
+ * Other Parts of the Project is not Responsible on this Change
+ *
+ * This Class just take the Ready Data to be Sent to Slack
+ * The Slack Configuration is Enabled from config.json File
+ * This File has App Token, Channel id to Send Messages on
+ */
 export class MessagingManager {
 
   private static CONFIG_FILE = "config.json";
@@ -11,6 +20,11 @@ export class MessagingManager {
   private static FIREBASE_BASE_URL_DOCUMENTATION = "https://firebase.google.com/docs";
   private static RELEASE_NOTES_FIREBASE = "https://firebase.google.com/support/release-notes/android";
 
+  /**
+   * This Method will be Triggered when any Library has Update Will Take all of them
+   * And Send them Via Messages on Slack Channel Configured from Config.json File
+   * @param libraries
+   */
   public sendMessageUpdateDependencies(libraries: Array<LibraryUpdateModel>) {
     let configFile = new ApplicationConfigFile("", "", "", true);
     const fs = require("fs");
@@ -28,6 +42,10 @@ export class MessagingManager {
     }
   }
 
+  /**
+   * This Just an Message to Send it on General Channel Only
+   * That the Cron Job is Started ... Logging xD
+   */
   public sendCronJobStartEvent() {
     let configFile = new ApplicationConfigFile("", "", "", true);
     const fs = require("fs");
@@ -38,6 +56,13 @@ export class MessagingManager {
     MessagingManager.sendSlackMessage(configFile, "Zilon Scheduler Started To Check All Libraries ...")
   }
 
+  /**
+   * Github is Not Like Google Maven Repository
+   * it Doesn't Depends on Specific Framework or Platform
+   * The Message should be Something General to All of them
+   * @param library
+   * @private
+   */
   private static getGithubMessageString(library: LibraryUpdateModel): string {
     let message = "";
     message += "*" + MessagingManager.capitalizeFirstLetter(library.name) + " Released New Version *\n"
@@ -48,6 +73,13 @@ export class MessagingManager {
     return message
   }
 
+  /**
+   * This Message will be Sent only on Google Maven Repository Changed any Library
+   * This Libraries is Working just on Android and Especially Androidx
+   * For this Reason We Can get the Dependency Information on each Artifact
+   * @param library
+   * @private
+   */
   private static getMessageString(library: LibraryUpdateModel): string {
     let isPlugin = false;
     let message = "";
