@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "392f87f5-78fe-45bd-8ebb-666eee64c44c",
+		"name": "Zilon Helper Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Android X All Release Notes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://developer.android.com/feeds/androidx-release-notes.xml",
+					"protocol": "https",
+					"host": [
+						"developer",
+						"android",
+						"com"
+					],
+					"path": [
+						"feeds",
+						"androidx-release-notes.xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Library Versions and Artifacts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dl.google.com/android/maven2/android/arch/persistence/room/group-index.xml",
+					"protocol": "https",
+					"host": [
+						"dl",
+						"google",
+						"com"
+					],
+					"path": [
+						"android",
+						"maven2",
+						"android",
+						"arch",
+						"persistence",
+						"room",
+						"group-index.xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Repositories in Android",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dl.google.com/android/maven2/master-index.xml",
+					"protocol": "https",
+					"host": [
+						"dl",
+						"google",
+						"com"
+					],
+					"path": [
+						"android",
+						"maven2",
+						"master-index.xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Artifacts and Versions Example 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dl.google.com/android/maven2/android/arch/core/group-index.xml",
+					"protocol": "https",
+					"host": [
+						"dl",
+						"google",
+						"com"
+					],
+					"path": [
+						"android",
+						"maven2",
+						"android",
+						"arch",
+						"core",
+						"group-index.xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Library Information (Group Id In Url, Artifact and Version in Response)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dl.google.com/android/maven2/androidx/activity/activity-ktx/1.4.0-rc01/artifact-metadata.json",
+					"protocol": "https",
+					"host": [
+						"dl",
+						"google",
+						"com"
+					],
+					"path": [
+						"android",
+						"maven2",
+						"androidx",
+						"activity",
+						"activity-ktx",
+						"1.4.0-rc01",
+						"artifact-metadata.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Slack Messages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/messages/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"messages",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Versions Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dl.google.com/android/maven2/androidx/arch/core/group-index.xml",
+					"protocol": "https",
+					"host": [
+						"dl",
+						"google",
+						"com"
+					],
+					"path": [
+						"android",
+						"maven2",
+						"androidx",
+						"arch",
+						"core",
+						"group-index.xml"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Google Maven Repository Script Validation to Local Files",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/deps",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"deps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validate Github Libraries Versions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/github",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"github"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Github Cache File From Current Github Repos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/github/cache",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"github",
+						"cache"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Google Packages Updates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/google/deps",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"google",
+						"deps"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
