@@ -31,14 +31,9 @@ export class MessagingManager {
   private static getGithubMessageString(library: LibraryUpdateModel): string {
     let message = "";
     message += "*" + MessagingManager.capitalizeFirstLetter(library.name) + " Released New Version *\n"
-    message += " 1. Library Release Link : " + library.releaseUrl + " \n"
+    message += " 1. Library Releases Link : " + library.releaseUrl + " \n"
     message += " 2. Library Url : " + library.url + " \n"
     message += " 3. Library Version : " + library.version + " \n"
-    if (library.isPreRelease) {
-      message += " 4. This Release is a Sub Release"
-    } else {
-      message += " 5. This Release is a Full Release"
-    }
 
     return message
   }
