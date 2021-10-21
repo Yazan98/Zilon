@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://nestjs.com/img/logo_text.svg" width="200" height="200" />
+  <img src="https://github.com/Yazan98/Zilon/blob/main/images/logo_png.png" width="200" height="200" />
 </p>
 
 # Zilon
@@ -41,16 +41,18 @@ Github Api V3 to Loop on all Libraries
 3. Run npm install
 4. Run npm start:dev
 
+```
 The Required Information inside Config.json File
 1. Github Application ClientId
 2. Github Application Secrete Key
 3. Slack App Access Token
 4. Slack App Signing Key
 5. Channel Id Start With # like #general
+```
 
 ### Repositories
 1. Github Libraries
 2. Androidx Libraries
 
 ### Result
-![Screenshot 2021-10-20 173745](https://user-images.githubusercontent.com/29167110/138191983-d503b18e-1488-4cae-bfba-c4bd7cab061d.png)
+![Screenshot 2021-10-20 173745](https://github.com/Yazan98/Zilon/blob/main/images/Screenshot%202021-10-20%20173745.png?raw=true)
