@@ -3,11 +3,20 @@
 </p>
 
 # Zilon
+
+### Original Article
+
+[Medium](https://medium.com/@yazantarifi98/how-to-build-scheduled-task-on-github-libraries-releases-via-slack-apps-cfa639e82e)
+
+[Dev.to](https://dev.to/yazan98/how-to-build-scheduled-task-on-github-libraries-releases-via-slack-apps-2d15)
+
+
 ### Description
 Zilon is a NodeJs Project To Run Scheduled Task Checks on Github Libraries Releases 
 This Project Will Check on All Cached Github Libraries inside Json File and Loop on All of them
 To get Latest Version of each library and Compare it with Cached Version
 Then Will Send Slack message with Latest Updates of the Library
+
 
 ### The Problem
 The Problem I faced when I use The Libraries that I should check or Follow Someone on Twitter, Reddit or medium to get notifications on the Libraries that I'm using inside my Project, but if I didn't open any application from social media apps I will never know if any library pushed new Version on their Repository or maybe I know about this updates after 2 weeks and for this reason I need to get Notifications in the same day of the Release because some libraries are still pushing major release changes and it's really a big problem if we discover this Updates after 2 Weeks from the Release date
