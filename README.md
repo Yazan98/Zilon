@@ -4,7 +4,7 @@
 
 # Zilon
 ### Description
-Zilon is a NodeJs Project To Automate Checks on Github Libraries Releases 
+Zilon is a NodeJs Project To Run Scheduled Task Checks on Github Libraries Releases 
 This Project Will Check on All Cached Github Libraries inside Json File and Loop on All of them
 To get Latest Version of each library and Compare it with Cached Version
 Then Will Send Slack message with Latest Updates of the Library
