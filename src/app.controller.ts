@@ -64,6 +64,16 @@ export class AppController {
     })
 
     items.push({
+      isGithubSource: true,
+      releaseUrl: "https://github.com/" + "nestjs/nest" + "/releases",
+      version: "v8.0.0",
+      url: "https://github.com/" + "nestjs/nest",
+      artifact: "",
+      groupId: "",
+      name: "nest"
+    })
+
+    items.push({
       groupId: "android.arch.navigation",
       artifact: "navigation-common",
       version: "1.0.0",
